@@ -1,6 +1,7 @@
 import Head from "next/head";
+import Layout from "../../components/Layout/Layout";
+import styles from "../../styles/Blog.module.scss";
 import Link from "next/link";
-import styles from "../../styles/blog.module.scss";
 
 interface Post {
   id: number;
@@ -15,13 +16,13 @@ const posts: Post[] = [
 
 export default function Blog() {
   return (
-    <div className={styles.container}>
+    <Layout>
       <Head>
         <title>Blog</title>
         <meta name="description" content="Read our latest blog posts." />
       </Head>
 
-      <main className={styles.main}>
+      <div className={styles.container}>
         <h1>Blog</h1>
         <ul>
           {posts.map((post) => (
@@ -30,7 +31,7 @@ export default function Blog() {
             </li>
           ))}
         </ul>
-      </main>
-    </div>
+      </div>
+    </Layout>
   );
 }
