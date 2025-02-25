@@ -1,5 +1,6 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
+import Link from "next/link";
+import styles from "../styles/home.module.scss";
 
 export default function Home() {
   return (
@@ -20,17 +21,15 @@ export default function Home() {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
-        <div className={styles.grid}>
-          <a href="/about" className={styles.card}>
-            <h2>About Us &rarr;</h2>
-            <p>Learn more about our company and mission.</p>
-          </a>
+        <Link className={styles.card} href="/about">
+          <h2>About Us &rarr;</h2>
+          <p>Learn more about our company and mission.</p>
+        </Link>
 
-          <a href="/blog" className={styles.card}>
-            <h2>Blog &rarr;</h2>
-            <p>Read our latest articles and updates.</p>
-          </a>
-        </div>
+        <Link className={styles.card} href="/blog">
+          <h2>Blog &rarr;</h2>
+          <p>Read our latest articles and updates.</p>
+        </Link>
       </main>
     </div>
   );

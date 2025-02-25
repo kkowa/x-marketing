@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../../styles/Blog.module.scss";
+import styles from "../../styles/blog.module.scss";
 
 interface Post {
   id: number;
@@ -26,9 +26,7 @@ export default function Blog() {
         <ul>
           {posts.map((post) => (
             <li key={post.id}>
-              <Link href={`/blog/${post.slug}`}>
-                <a>{post.title}</a>
-              </Link>
+              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
             </li>
           ))}
         </ul>
