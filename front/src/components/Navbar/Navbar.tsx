@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <Link href="/">My Website</Link>
+        <Link href="/">X Marketing</Link>
       </div>
       <ul className={styles.links}>
         <li>
