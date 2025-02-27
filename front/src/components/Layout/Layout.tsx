@@ -1,3 +1,4 @@
+import AnimatedBackground from "../Background/AnimatedBackground";
 import Navbar from "../Navbar/Navbar";
 import styles from "./Layout.module.scss";
 
@@ -7,10 +8,13 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className={styles.container}>
-      <Navbar />
-      <main className={styles.main}>{children}</main>
-    </div>
+    <>
+      <AnimatedBackground />
+      <div className={styles.container}>
+        <Navbar />
+        <main className={styles.main}>{children}</main>
+      </div>
+    </>
   );
 };
 
