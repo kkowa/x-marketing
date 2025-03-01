@@ -1,5 +1,5 @@
 .navbar {
-  z-index: 30;
+  z-index: 80;
   position: fixed;
   left: 0;
   width: -webkit-fill-available;
@@ -8,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: transparent;
+  background-color: rgb(1, 2, 1);
   color: #fff;
   backdrop-filter: blur(10px);
 
@@ -16,6 +16,7 @@
     font-size: 1.5rem;
     font-weight: bold;
     display: flex;
+    width: 300px;
 
     .logotype {
       padding-left: 10px;
@@ -42,8 +43,18 @@
       }
     }
   }
-  .button {
+
+  .signin__button {
     width: 150px;
     height: 50px;
+    margin-right: 20px;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 40;
+  }
+  .signup__button {
+    width: 150px;
+    height: 50px;
+    border-radius: 40;
   }
 }

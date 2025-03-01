@@ -23,7 +23,10 @@ const Navbar = () => {
           <Link href="/contact">Contact Us</Link>
         </li>
       </ul>
-      <button className={styles.button}>Get Started</button>
+      <div className="auth">
+        <button className={styles.signin__button}>Sign In</button>
+        <button className={styles.signup__button}>Sign Up</button>
+      </div>
     </nav>
   );
 };
