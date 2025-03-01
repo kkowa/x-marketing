@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import styles from "../../styles/BlogPost.module.scss";
+import styles from "@/styles/blog/BlogPost.module.scss";
 
 interface Post {
   id: number;

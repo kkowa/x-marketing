@@ -1,7 +1,8 @@
+"use client";
 import { useEffect } from "react";
-import styles from "./AnimatedBackground.module.scss";
+import styles from "./Background.module.scss";
 
-const AnimatedBackground = () => {
+const Background = () => {
   useEffect(() => {
     const interBubble = document.querySelector(
       `.${styles.interactive}`
@@ -56,14 +57,10 @@ const AnimatedBackground = () => {
       </svg>
       <div className={`${styles["gradients-container"]}`}>
         <div className={styles.g1}></div>
-        {/* <div className={styles.g2}></div> */}
-        {/* <div className={styles.g3}></div>
-        <div className={styles.g4}></div>
-        <div className={styles.g5}></div> */}
         <div className={styles.interactive}></div>
       </div>
     </div>
   );
 };
 
-export default AnimatedBackground;
+export default Background;
