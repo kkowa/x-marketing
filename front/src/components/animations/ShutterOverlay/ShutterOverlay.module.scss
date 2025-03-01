@@ -1,11 +1,12 @@
 .shutterOverlay {
+  z-index: 20;
   position: absolute; // Use absolute instead of fixed
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh; // Use min-height instead of height
-  z-index: 20; // Middle layer
-  pointer-events: none; // Allow clicks to pass through
+  min-height: 100vh;
+  pointer-events: none;
+  // padding-top: 115px;
 
   .shutterContainer {
     position: sticky;
@@ -14,7 +15,6 @@
     transition: opacity 500ms;
 
     &.fullyClosed {
-      opacity: 0;
       pointer-events: none;
     }
 
@@ -47,14 +47,6 @@
               rgba(255, 255, 255, 0) 0%,
               rgba(255, 255, 255, 0.1) 100%
             );
-            // Vertical gradient: top to bottom (0, 0.1, 0)
-            //   linear-gradient(
-            //       to bottom,
-            //       rgba(255, 255, 255, 0) 0%,
-            //       rgba(255, 255, 255, 0.1) 50%,
-            //       rgba(255, 255, 255, 0) 100%
-            //     );
-            // backface-visibility: hidden;
           }
 
           .backFace {

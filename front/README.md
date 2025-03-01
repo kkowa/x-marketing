@@ -1,33 +1,14 @@
-Folder architecture
+to do: 
 
-front/
-├── public/ # Static assets (images, fonts, etc.)
-│ └── images/ # Store images here
-├── src/
-│ ├── components/ # Reusable UI components
-│ ├── pages/ # Next.js pages (auto-routed)
-│ │ ├── api/ # API routes (optional)
-│ │ ├── index.js # Homepage
-│ │ ├── about.js # About page
-│ │ └── blog/ # Blog section
-│ │ ├── index.js # Blog listing page
-│ │ └── [slug].js # Dynamic blog post page
-│ ├── styles/ # Global and modular styles
-│ │ ├── globals.scss # Global styles
-│ │ └── Home.module.scss # Modular styles for the homepage
-│ ├── utils/ # Utility functions
-│ └── data/ # Mock data (optional)
-├── next.config.js # Next.js configuration
-├── package.json # Project dependencies
-└── README.md # Project documentation
 
-Folder/File Namings Convenction
+analyse the css for the bacground and the shhutters 
 
-src/
-├── components/ # Lowercase (folder)
-│ └── Navbar/ # PascalCase (folder for a specific component)
-│ ├── Navbar.tsx # PascalCase (component file)
-│ └── Navbar.module.scss # Lowercase (styles file)
-├── pages/ # Lowercase (folder)
-│ ├── index.tsx # Lowercase (page file)
-│ └── about.tsx # Lowercase (page file)
+
+Make nav fixed 
+bacground starting black/color transition onto the shutters from the navbar
+make the backfacing shitter go on top of the header
+
+Track Scroll Progress and Fully Closed State
+Dynamically Adjust the Height of content__container
+Update ShutterOverlay to Sync with isFullyClosed
+Update Home.module.scss

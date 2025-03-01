@@ -1,5 +1,5 @@
-import styles from "@/styles/Layout.module.scss";
 import type { Metadata } from "next";
+import styles from "@/styles/Layout.module.scss";
 import Nav from "@/components/Navbar/Navbar";
 
 export const metadata: Metadata = {
@@ -13,9 +13,9 @@ export default function WebsiteLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div className="layout__container">
       <Nav />
       <main className={styles.main}>{children}</main>
-    </>
+    </div>
   );
 }

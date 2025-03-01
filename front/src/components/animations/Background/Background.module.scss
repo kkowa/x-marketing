@@ -44,30 +44,20 @@
 }
 
 .gradient-bg {
+  z-index: 10;
+  position: fixed;
   width: 100%;
-  height: 100vh; // Limit height to 100vh
-  position: absolute;
+  height: 100%;
   top: 0;
   left: 0;
-  overflow: hidden;
-
   background: rgb(2, 1, 3);
   top: 0;
   left: 0;
-  z-index: 10;
-
-  svg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-  }
 
   .gradients-container {
-    filter: url(#goo) blur(40px);
+    filter: url(#goo) blur(30px);
     width: 100%;
-    height: 200vh;
+    height: 100vh;
   }
 
   .g1 {
