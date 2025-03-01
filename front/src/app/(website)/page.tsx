@@ -8,20 +8,20 @@ import {
 } from "../../../public/icons/icons";
 import ShutterOverlay from "@/components/animations/ShutterOverlay/ShutterOverlay";
 
-const NUM_RECTANGLES = 23; // Number of shutters
-const SCROLL_OFFSET = 50; // Reduced from 100 to make shutters turn faster
-const totalHeight = NUM_RECTANGLES * SCROLL_OFFSET; // Total height required
+const NUM_RECTANGLES = 23;
+const SCROLL_OFFSET = 50;
+const totalHeight = NUM_RECTANGLES * SCROLL_OFFSET;
 
 export default function Home() {
   return (
     <>
       <div
         className={styles.home__container}
-        style={{ height: `${totalHeight}px` }} // Set the height dynamically
+        style={{ height: `${totalHeight}px` }}
       >
         <Background />
         <ShutterOverlay />
-        <div className="home__container">
+        <div className="header__container">
           <div className={`${styles["social__icons--wrapper"]}`}>
             <InstagramIcon />
             <WhatsAppIcon />
@@ -35,6 +35,7 @@ export default function Home() {
             Help you to design, build and manage digital presence that is modern
             and user friendly technologies
           </p>
+          <button className={styles.home__button}>Know more!</button>
         </div>
       </div>
     </>

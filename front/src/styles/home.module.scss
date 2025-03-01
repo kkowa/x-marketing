@@ -1,14 +1,18 @@
 .home__container {
-  z-index: 30;
-  position: relative;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  padding-top: 300px;
+  justify-items: center;
   text-align: center;
-  width: 100%;
 
   .social__icons--wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 16px;
+    position: relative;
+    z-index: 41;
 
     svg {
       width: 24px;
@@ -17,32 +21,39 @@
     }
   }
 
-  .home__container {
-    display: fixed;
+  .home__title {
+    padding: 10px;
+    line-height: 1.15;
+    font-size: 105px;
+    color: #9795ff;
+    background-image: linear-gradient(
+      45deg,
+      #9795ff 0%,
+      #ffffff 42%,
+      #ffffff 59%,
+      #be9fff 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 41;
+  }
 
-    .home__title {
-      margin: 0;
-      line-height: 1.15;
-      text-align: center;
-      font-size: 105px;
-      color: #9795ff;
-      background-image: linear-gradient(
-        45deg,
-        #9795ff 0%,
-        #ffffff 42%,
-        #ffffff 59%,
-        #be9fff 100%
-      );
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .home__description {
-      line-height: 1.5;
-      font-size: 16px;
-      text-align: center;
-      color: #ffff;
-    }
+  .home__description {
+    line-height: 1.5;
+    font-size: 16px;
+    color: #ffff;
+    position: relative;
+    z-index: 41;
+  }
+  .home__button {
+    margin-top: 70px;
+    line-height: 1.5;
+    font-size: 16px;
+    position: relative;
+    z-index: 41;
+    width: 150px;
+    height: 50px;
   }
 }

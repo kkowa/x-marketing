@@ -1,5 +1,5 @@
 .navbar {
-  z-index: 40;
+  z-index: 30;
   position: fixed;
   left: 0;
   width: -webkit-fill-available;
@@ -41,5 +41,9 @@
         }
       }
     }
+  }
+  .button {
+    width: 150px;
+    height: 50px;
   }
 }
