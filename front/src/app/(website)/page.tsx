@@ -1,3 +1,5 @@
+"use client";
+import { useState, useEffect } from "react";
 import styles from "@/styles/Home.module.scss";
 import Background from "@/components/animations/Background/Background";
 import {
@@ -9,13 +11,26 @@ import {
 import ShutterOverlay from "@/components/animations/ShutterOverlay/ShutterOverlay";
 
 const NUM_RECTANGLES = 23; // Number of shutters
-const SCROLL_OFFSET = 100; // Scroll offset for each shutter
+const SCROLL_OFFSET = 50; // Reduced from 100 to make shutters turn faster
 const totalHeight = NUM_RECTANGLES * SCROLL_OFFSET; // Total height required
 
 export default function Home() {
+  const [isFullyClosed, setIsFullyClosed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const shutterCloseThreshold = SCROLL_OFFSET * (NUM_RECTANGLES - 1) + 90;
+      setIsFullyClosed(scrollY >= shutterCloseThreshold);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <Background />
+      <Background isFullyClosed={isFullyClosed} />
       <ShutterOverlay />
       <div
         className={styles.content__container}

@@ -7,7 +7,6 @@
   color: #fff;
   position: sticky; // Use sticky instead of fixed
   top: 0; // Stick to the top of the viewport
-  width: 100%;
   z-index: 1000; // Highest z-index to ensure it's on top
   backdrop-filter: blur(10px); // Optional: Add a blur effect to the background
 
