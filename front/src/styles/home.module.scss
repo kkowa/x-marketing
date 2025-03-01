@@ -1,5 +1,5 @@
 .home__container {
-  z-index: 40;
+  z-index: 30;
   display: flex;
   flex-direction: column;
   padding-top: 300px;
@@ -12,7 +12,7 @@
     align-items: center;
     gap: 16px;
     position: relative;
-    z-index: 41;
+    z-index: 31;
 
     svg {
       width: 24px;
@@ -37,7 +37,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
-    z-index: 41;
+    z-index: 31;
   }
 
   .home__description {
@@ -45,14 +45,14 @@
     font-size: 16px;
     color: #ffff;
     position: relative;
-    z-index: 41;
+    z-index: 31;
   }
   .home__button {
     margin-top: 70px;
     line-height: 1.5;
     font-size: 16px;
     position: relative;
-    z-index: 41;
+    z-index: 31;
     width: 150px;
     height: 50px;
   }

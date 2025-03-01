@@ -1,12 +1,11 @@
 .shutterOverlay {
-  z-index: 20;
   position: absolute; // Use absolute instead of fixed
   top: 0;
   left: 0;
   width: 100%;
   min-height: 100vh;
   pointer-events: none;
-  // padding-top: 115px;
+  z-index: 20;
 
   .shutterContainer {
     position: sticky;
@@ -64,7 +63,9 @@
       }
     }
   }
-
+  .fullyClosed {
+    z-index: 40; // Higher z-index when shutters are closed
+  }
   .contentReveal {
     position: relative;
     height: 100vh;

@@ -6,13 +6,13 @@ const NUM_RECTANGLES = 23;
 const SCROLL_OFFSET = 50;
 const shutterCloseThreshold = SCROLL_OFFSET * (NUM_RECTANGLES - 1) + 90;
 
-const ShutterOverlay = () => {
+const ShutterOverlay = ({ onClose }) => {
   const [scrollY, setScrollY] = useState(0);
   const [isFullyClosed, setIsFullyClosed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY); // Always update scrollY
+      setScrollY(window.scrollY);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -20,11 +20,13 @@ const ShutterOverlay = () => {
 
   useEffect(() => {
     if (scrollY >= shutterCloseThreshold) {
-      setIsFullyClosed(true); // Set fully closed state
+      setIsFullyClosed(true);
+      onClose(true); // Notify parent that shutters are closed
     } else {
-      setIsFullyClosed(false); // Reset fully closed state when scrolling up
+      setIsFullyClosed(false);
+      onClose(false); // Notify parent that shutters are open
     }
-  }, [scrollY]);
+  }, [scrollY, onClose]);
 
   const getRotationDegrees = (index: number) => {
     const progress = scrollY - index * SCROLL_OFFSET;
