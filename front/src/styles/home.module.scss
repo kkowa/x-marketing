@@ -1,5 +1,5 @@
 .home__container {
-  z-index: 30;
+  z-index: 30; /* Container stays at z-index 30 */
   display: flex;
   flex-direction: column;
   padding-top: 300px;
@@ -12,7 +12,7 @@
     align-items: center;
     gap: 16px;
     position: relative;
-    z-index: 31;
+    z-index: 31; /* Icons stay above the title */
     margin-bottom: 100px;
 
     svg {
@@ -38,7 +38,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
-    z-index: 31;
+    z-index: 35; /* Title above the white overlay but below the back-facing shutter */
     margin-bottom: 100px;
   }
 
@@ -47,16 +47,22 @@
     font-size: 16px;
     color: #ffff;
     position: relative;
-    z-index: 31;
+    z-index: 31; /* Description stays above the title */
   }
+
   .home__button {
     margin-top: 70px;
     line-height: 1.5;
     font-size: 16px;
     position: relative;
-    z-index: 31;
+    z-index: 21; /* Button stays below the title */
     width: 250px;
     height: 50px;
     border-radius: 40;
   }
+}
+
+#more {
+  z-index: 1500;
+  min-height: 200vh;
 }

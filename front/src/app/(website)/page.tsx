@@ -19,12 +19,17 @@ export default function Home() {
 
   return (
     <>
-      <div
+      <section
+        id="landing"
         className={styles.home__container}
         style={{ height: `${totalHeight}px` }}
       >
         <Background />
-        <ShutterOverlay onClose={(closed) => setIsShutterClosed(closed)} />
+        <ShutterOverlay
+          onClose={(closed: boolean | ((prevState: boolean) => boolean)) =>
+            setIsShutterClosed(closed)
+          }
+        />
         <div
           className={styles.header__container}
           style={{ zIndex: isShutterClosed ? 40 : 50 }} // Adjust z-index dynamically
@@ -36,14 +41,18 @@ export default function Home() {
             <TwitterIcon />
           </div>
           <h1 className={styles.home__title}>
-            Amazing digital presence creation <br /> with X Marketing Agency
+            Amazing website creation <br /> with X Agency
           </h1>
           <p className={styles.home__description}>
-            Help you to design, build and manage digital presence that is modern
-            and user friendly technologies
+            help you to build website company that is modern, user friendly,
+            good CEO, and Clean design
           </p>
         </div>
-      </div>
+      </section>
+      <section id="more">
+        hello
+        <h1>HEY</h1>
+      </section>
     </>
   );
 }

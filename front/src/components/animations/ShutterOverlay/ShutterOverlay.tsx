@@ -6,7 +6,11 @@ const NUM_RECTANGLES = 23;
 const SCROLL_OFFSET = 50;
 const shutterCloseThreshold = SCROLL_OFFSET * (NUM_RECTANGLES - 1) + 90;
 
-const ShutterOverlay = ({ onClose }) => {
+interface ShutterOverlayProps {
+  onClose: (isClosed: boolean) => void;
+}
+
+const ShutterOverlay = ({ onClose }: ShutterOverlayProps) => {
   const [scrollY, setScrollY] = useState(0);
   const [isFullyClosed, setIsFullyClosed] = useState(false);
 
@@ -21,10 +25,10 @@ const ShutterOverlay = ({ onClose }) => {
   useEffect(() => {
     if (scrollY >= shutterCloseThreshold) {
       setIsFullyClosed(true);
-      onClose(true); // Notify parent that shutters are closed
+      onClose(true);
     } else {
       setIsFullyClosed(false);
-      onClose(false); // Notify parent that shutters are open
+      onClose(false);
     }
   }, [scrollY, onClose]);
 
@@ -65,7 +69,10 @@ const ShutterOverlay = ({ onClose }) => {
           isFullyClosed ? styles.fullyClosed : styles.hidden
         }`}
       >
-        <p>You reached the end of the landing page!</p>
+        <p>
+          Companies that can help you in <br />
+          developing your company for the future
+        </p>
       </div>
     </div>
   );
