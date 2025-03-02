@@ -9,6 +9,7 @@ Nav:
 black face of the shutter is higher then header and the description
 
 Annimation
+add scroll animation under home description
 Continue with annimations and remainder of home page
 after shutter is turned over introduce harry portter style animation from which
 add loading

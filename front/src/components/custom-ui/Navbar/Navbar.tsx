@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./Navbar.module.scss";
-import { CompanyLogoIdeogram } from "../../../public/icons/icons";
+import { CompanyLogoIdeogram } from "../../../../public/icons/icons";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   return (
@@ -26,6 +27,7 @@ const Navbar = () => {
       <div className="auth">
         <button className={styles.signin__button}>Sign In</button>
         <button className={styles.signup__button}>Sign Up</button>
+        <Button variant="secondary">Secondary</Button>
       </div>
     </nav>
   );

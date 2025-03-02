@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import styles from "@/styles/Layout.module.scss";
-import Nav from "@/components/Navbar/Navbar";
+import Nav from "@/components/custom-ui/Navbar/Navbar";
 
 export const metadata: Metadata = {
   title: "X Marketing",

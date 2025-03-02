@@ -1,5 +1,6 @@
 import styles from "@/styles/Layout.module.scss";
 import type { Metadata } from "next";
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "X Marketing",
