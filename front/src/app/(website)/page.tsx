@@ -42,7 +42,6 @@ export default function Home() {
             Help you to design, build and manage digital presence that is modern
             and user friendly technologies
           </p>
-          <button className={styles.home__button}>Know more</button>
         </div>
       </div>
     </>
