@@ -8,9 +8,13 @@ const shutterCloseThreshold = SCROLL_OFFSET * (NUM_RECTANGLES - 1) + 90;
 
 interface ShutterOverlayProps {
   onClose: (isClosed: boolean) => void;
+  onHeightCalculated: (height: number) => void; // Callback to pass height to parent
 }
 
-const ShutterOverlay = ({ onClose }: ShutterOverlayProps) => {
+const ShutterOverlay = ({
+  onClose,
+  onHeightCalculated,
+}: ShutterOverlayProps) => {
   const [scrollY, setScrollY] = useState(0);
   const [isFullyClosed, setIsFullyClosed] = useState(false);
 
@@ -18,6 +22,7 @@ const ShutterOverlay = ({ onClose }: ShutterOverlayProps) => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -31,6 +36,11 @@ const ShutterOverlay = ({ onClose }: ShutterOverlayProps) => {
       onClose(false);
     }
   }, [scrollY, onClose]);
+
+  useEffect(() => {
+    // Pass the shutterCloseThreshold to the parent component
+    onHeightCalculated(shutterCloseThreshold);
+  }, [onHeightCalculated]);
 
   const getRotationDegrees = (index: number) => {
     const progress = scrollY - index * SCROLL_OFFSET;

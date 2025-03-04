@@ -1,0 +1,29 @@
+.landing__container {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+
+  .landing__header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    font-size: 16px;
+    padding: 4px;
+  }
+}
+
+.about__container {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  padding: 4px;
+}

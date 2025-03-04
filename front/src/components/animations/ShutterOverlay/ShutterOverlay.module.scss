@@ -1,11 +1,11 @@
 .shutterOverlay {
-  position: absolute; // Use absolute instead of fixed
+  position: absolute; // Use absolute to stay within the first section
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh;
+  height: 100%; // Take full height of the first section
   pointer-events: none;
-  z-index: 50; /* Ensure the shutter overlay is above the header */
+  z-index: 50; // Ensure the shutter overlay is above the background
 
   .shutterContainer {
     position: sticky;
@@ -30,11 +30,11 @@
         .shutterInner {
           width: 100%;
           height: 100%;
-          transition: transform 300ms;
+          transition: transform 300ms ease-out; // Smooth transition
           transform-style: preserve-3d;
 
           .frontFace {
-            z-index: 20; /* Front face stays below the header */
+            z-index: 20;
             position: absolute;
             inset: 0;
             display: flex;
@@ -63,20 +63,11 @@
             background-color: black;
             transform: rotateY(180deg);
             backface-visibility: hidden;
-            z-index: 100; /* Back face stays above everything, including the header */
-          }
-
-          /* Apply higher z-index during rotation */
-          &.rotating .backFace {
-            z-index: 100; /* Ensure back face stays on top during rotation */
+            z-index: 100;
           }
         }
       }
     }
-  }
-
-  .fullyClosed {
-    z-index: 40; /* Higher z-index when shutters are closed */
   }
 
   .contentReveal {
@@ -98,7 +89,7 @@
 
     p {
       color: white;
-      font-size: 1.5rem; // Fallback for text-2xl
+      font-size: 1.5rem;
     }
   }
 }

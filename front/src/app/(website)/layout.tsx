@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import styles from "@/styles/Layout.module.scss";
-import Nav from "@/components/custom-ui/Navbar/Navbar";
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "X Marketing",
@@ -13,9 +12,10 @@ export default function WebsiteLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="layout__container">
-      <Nav />
-      <main className={styles.main}>{children}</main>
-    </div>
+    <>
+      {/* Webside NavBar goes here  */}
+      <main>{children}</main>
+      {/* Webside Footer goes here  */}
+    </>
   );
 }
