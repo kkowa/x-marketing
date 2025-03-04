@@ -84,7 +84,7 @@ const Shutter = () => {
                   />
                   {/* Back face - white side (higher z-index than text)  white is just used for debbuging*/}
                   <div
-                    className="absolute inset-0 bg-white"
+                    className="absolute inset-0 bg-[#020103]"
                     style={{
                       transform: "rotateY(180deg)",
                       backfaceVisibility: "hidden",

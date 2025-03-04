@@ -1,5 +1,4 @@
 .home__title {
-  padding: 10px;
   line-height: 1.15;
   font-size: 105px;
   color: #9795ff;
@@ -14,8 +13,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
-  z-index: 35;
-  margin-bottom: 100px;
+  padding-bottom: 40px;
 }
 
 .home__description {
@@ -24,4 +22,20 @@
   color: #ffff;
   position: relative;
   z-index: 31;
+}
+
+.social__icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 31;
+  margin-bottom: 100px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
 }
