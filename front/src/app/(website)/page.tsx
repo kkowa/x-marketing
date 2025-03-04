@@ -1,12 +1,15 @@
 "use client";
 
-import Shutter from "@/components/animations/Shutter/Shutter";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+
 import styles from "./home.module.scss";
 
 export default function Home() {
   return (
     <>
-      <Shutter />
+      <Navbar />
+      <Hero />
       <section className={styles.landing__container}>
         <div
           className={styles.landing__header}

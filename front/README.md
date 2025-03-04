@@ -17,3 +17,6 @@ add skeleton
 add extra libries if needed for transitions on the side of the user
 
 add next section in pages
+
+
+go though the tailwind and either make the classes using their classes or add custom to the theme 

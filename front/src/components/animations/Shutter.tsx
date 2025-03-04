@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import Background from "../Background/Background";
+// import Background from "./Background/Background";
 
-const ShutterPage = () => {
+const Shutter = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [firstShutterRotating, setFirstShutterRotating] = useState(false);
-  const [textColor, setTextColor] = useState("text-black");
+  // const [firstShutterRotating, setFirstShutterRotating] = useState(false);
+  // const [textColor, setTextColor] = useState("text-black");
   const shutterContainerRef = useRef<HTMLDivElement>(null);
-  const numberOfShutters = 23; // 23 vertical rectangles
+  const numberOfShutters = 23;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,22 +30,22 @@ const ShutterPage = () => {
 
       // Check if the first shutter has started rotating
       // We use the first shutter (index 0) to determine when to hide the text
-      const firstShutterRotation = Math.min(
-        (scaledPosition / 8) * (0 * 0.15 + 1),
-        180
-      );
+      // const firstShutterRotation = Math.min(
+      //   (scaledPosition / 8) * (0 * 0.15 + 1),
+      //   180
+      // );
 
       // Consider first shutter rotating when it's past a small threshold (e.g., 5 degrees)
-      const isRotating = firstShutterRotation > 5;
-      setFirstShutterRotating(isRotating);
+      // const isRotating = firstShutterRotation > 5;
+      // setFirstShutterRotating(isRotating);
 
       // Change text color based on rotation progress
       // As the shutters rotate to reveal black background, we switch to white text
-      if (firstShutterRotation > 45) {
-        setTextColor("text-white");
-      } else {
-        setTextColor("text-black");
-      }
+      // if (firstShutterRotation > 45) {
+      //   setTextColor("text-white");
+      // } else {
+      //   setTextColor("text-black");
+      // }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -58,58 +58,12 @@ const ShutterPage = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Fixed Header - highest z-index */}
-      <header className="fixed top-0 left-0 right-0 bg-white shadow-md py-4 px-6 z-50">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center">
-            <div className="w-10 h-10 bg-blue-500 rounded-md flex items-center justify-center text-white font-bold text-xl">
-              S
-            </div>
-            <span className="ml-3 text-xl font-semibold text-gray-800">
-              ShutterApp
-            </span>
-          </div>
-
-          <nav className="hidden md:flex space-x-8">
-            <a
-              href="#"
-              className="text-gray-600 hover:text-blue-500 transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-blue-500 transition-colors"
-            >
-              Features
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-blue-500 transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-blue-500 transition-colors"
-            >
-              Contact
-            </a>
-          </nav>
-
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
-            Sign Up
-          </button>
-        </div>
-      </header>
-
-      {/* Shutter effect container with 250vh height */}
+      {/* Shutter effect container with 250vh height - fixed due to shutter overlayer effect*/}
       <div
         ref={shutterContainerRef}
         className="relative w-full"
-        style={{ height: "250vh" }}
+        style={{ height: "200vh" }}
       >
-        <Background />
         <div
           className="sticky top-0 h-screen w-full overflow-hidden"
           style={{
@@ -117,8 +71,9 @@ const ShutterPage = () => {
           }}
         >
           {/* Heading and description - z-index changes based on first shutter rotation */}
-          <div
-            className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4 transition-all duration-300 ${textColor}`}
+          {/* <div
+            className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4 transition-all duration-300`}
+            // className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4 transition-all duration-300 ${textColor}`}
             style={{
               zIndex: firstShutterRotating ? 10 : 20, // Above gray (15) when not rotating, below both when rotating
               opacity: 1,
@@ -132,7 +87,7 @@ const ShutterPage = () => {
               Scroll down to see the shutters rotate. This text will change
               color to contrast with its background as the shutters rotate.
             </p>
-          </div>
+          </div> */}
 
           {/* Custom grid for 23 columns */}
           <div className="flex h-full w-full">
@@ -188,4 +143,4 @@ const ShutterPage = () => {
   );
 };
 
-export default ShutterPage;
+export default Shutter;
