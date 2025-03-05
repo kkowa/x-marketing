@@ -3,7 +3,7 @@ import { ButtonIcon, CompanyLogoIdeogram } from "../../public/icons/icons";
 
 const Navbar = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 bg-[#020103] shadow-md py-4 px-2 z-50">
+    <header className="fixed top-0 left-0 right-0 bg-[#020103] shadow-md py-4 px-6 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <CompanyLogoIdeogram />
