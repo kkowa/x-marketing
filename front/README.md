@@ -20,3 +20,8 @@ add next section in pages
 
 go though the tailwind and either make the classes using their classes or add custom to the theme
 sort z indexes
+
+
+Next steps (weekend)
+
+1.add cards component using the ui lib plus all the assets from the figma 
