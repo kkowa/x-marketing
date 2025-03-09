@@ -22,6 +22,4 @@ go though the tailwind and either make the classes using their classes or add cu
 sort z indexes
 
 Next steps (weekend)
-
-1. add cards component using the ui lib plus all the assets from the figma
-2. add a stripe
+=
