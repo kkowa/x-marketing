@@ -1,38 +1,28 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import Navbar from "@/components/website/common/Navbar";
+import Footer from "@/components/website/common/Footer";
 
-import styles from "./home.module.scss";
+import Hero from "@/components/website/home/Hero";
+import About from "@/components/website/home/About";
+import Services from "@/components/website/home/Services";
+import Stripe from "@/components/website/home/Stripe";
+import Portfolio from "@/components/website/home/Portfolio";
+import Testimonials from "@/components/website/home/Testimonials";
+import Contact from "@/components/website/home/Contact";
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <Hero />
-      <section className={styles.landing__container}>
-        <div
-          className={styles.landing__header}
-          style={{
-            zIndex: 1,
-          }}
-        >
-          <div>
-            <h1 className={styles.heading}>Landing Heading</h1>
-            <p className={styles.description}>Landing Description</p>
-          </div>
-        </div>
-      </section>
-      <section className={styles.about__container}>
-        <div
-          style={{
-            zIndex: 1,
-          }}
-        >
-          <p className={styles.heading}>About Heading</p>
-          <p className={styles.description}>About Description</p>
-        </div>
-      </section>
+      <About />
+      <Services />
+      <Stripe />
+      <Portfolio />
+      <Testimonials />
+      <Contact />
+      <Footer />
     </>
   );
 }

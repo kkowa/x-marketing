@@ -21,6 +21,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         action:
           "relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800",
+        gradient: "", 
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -36,25 +37,51 @@ const buttonVariants = cva(
   }
 );
 
-function Button({
-  className,
-  variant,
-  size,
-  asChild = false,
-  ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean;
-  }) {
-  const Comp = asChild ? Slot : "button";
-
-  return (
-    <Comp
-      data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
-    />
-  );
+interface ButtonProps
+  extends React.ComponentProps<"button">,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+  text?: string; // Optional text property for gradient buttons
 }
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    { className, variant, size, asChild = false, children, text, ...props },
+    ref
+  ) => {
+    const Comp = asChild ? Slot : "button";
+
+    // For gradient variant, we bypass the buttonVariants and use direct classes
+    if (variant === "gradient") {
+      return (
+        <Comp
+          className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium rounded-[60px] group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
+          ref={ref}
+          {...props}
+        >
+          <span className="relative px-4 py-0.5 transition-all ease-in duration-75 bg-black dark:bg-gray-900 rounded-[60px] group-hover:bg-transparent group-hover:dark:bg-transparent">
+            <div className="flex w-[141px] h-[35px] justify-center items-center">
+              {text && <p className="mr-[10px] text-white">{text}</p>}
+              {children}
+            </div>
+          </span>
+        </Comp>
+      );
+    }
+
+    // For all other variants, use the buttonVariants
+    return (
+      <Comp
+        data-slot="button"
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Comp>
+    );
+  }
+);
+Button.displayName = "Button";
 
 export { Button, buttonVariants };
