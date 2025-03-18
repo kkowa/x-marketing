@@ -6,7 +6,7 @@ import { ArrowUpCircleIcon } from "public/icons/icons";
 
 const styles = {
   nextSection:
-    "relative h-screen w-full items-center justify-center bg-[#020103] text-white text-3xl font-bold z-200 px-6  max-w-7xl mx-auto ",
+    "relative max-w-7xl items-center justify-center bg-[#020103] text-white text-3xl font-bold mx-auto ",
 };
 
 const Services = () => {
@@ -33,7 +33,7 @@ const Services = () => {
                 paddingBottom: "40px",
               }}
             >
-              Let's work together <br /> with our us
+              Let&apos;s work together <br /> with our us
             </div>
           </div>
           <div className={custom_styles.home__description}>
@@ -46,7 +46,7 @@ const Services = () => {
         <div>
           <Button
             variant="outline"
-            className="ml-4 mb-3 w-[218px] h-9 rounded-full text-black bg-white hover:bg-white/90 z-10 flex items-center gap-2"
+            className="h-[50px] w-[161px] mt-[5px] rounded-full text-black bg-white hover:bg-white/90 z-10 flex items-center gap-2"
           >
             <span className="font-medium">Get Started</span>
             <ArrowUpCircleIcon color="black" />

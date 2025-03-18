@@ -6,7 +6,7 @@ import { ArrowUpIcon } from "public/icons/icons";
 
 const styles = {
   nextSection:
-    "relative h-screen w-full items-center justify-center bg-[#020103] text-white text-3xl font-bold mt-[600px] z-200 px-6 pt-[calc(10%)] max-w-7xl mx-auto ",
+    "relative max-w-7xl items-center justify-center  bg-[#020103] text-white text-3xl font-bold mt-[600px] z-40 pt-[calc(10%)] max-w-7xl mx-auto ",
 };
 
 const About = () => {
@@ -14,8 +14,20 @@ const About = () => {
 
   return (
     <div id="next-section" ref={nextSectionRef} className={styles.nextSection}>
-      <div style={{ display: "flex", flexDirection: "column", color: "black" }}>
-        <div style={{ display: "flex", alignItems: "flex-end" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          color: "black",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           <div
             className={custom_styles.home__title}
             style={{
@@ -29,7 +41,7 @@ const About = () => {
           <Button
             variant="outline"
             size="sm"
-            className="ml-4 mb-3 w-[218px] h-9 rounded-full text-black bg-white hover:bg-white/90 z-10 flex items-center gap-2"
+            className="h-[50px] w-[238px] mt-[5px] rounded-full text-black bg-white hover:bg-white/90 z-10 flex items-center gap-2"
           >
             <span className="font-medium">Know More</span>
             <ArrowUpIcon />
