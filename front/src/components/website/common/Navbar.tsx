@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 import {
-  ButtonIcon,
+  ArrowUpCircleIcon,
   CompanyLogoIdeogram,
 } from "../../../../public/icons/icons";
 
@@ -40,7 +40,7 @@ const Navbar = () => {
           </Link>
         </nav>
         <Button variant="gradient" text="Get Started">
-          <ButtonIcon />
+          <ArrowUpCircleIcon />
         </Button>
       </div>
     </header>

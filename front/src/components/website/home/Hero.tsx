@@ -3,11 +3,11 @@ import Background from "../../animations/Background/Background";
 import Shutter from "../../animations/Shutter";
 import custom_styles from "../../Hero.module.scss";
 import {
-  ButtonIcon,
   InstagramIcon,
   LinkedInIcon,
   TwitterIcon,
   WhatsAppIcon,
+  ArrowUpCircleIcon,
 } from "public/icons/icons";
 import { Button } from "@/components/ui/button";
 
@@ -298,7 +298,7 @@ const Hero = () => {
         text="Get Started"
         onClick={handleExploreClick}
       >
-        <ButtonIcon />
+        <ArrowUpCircleIcon />
       </Button>
     </div>
   );
