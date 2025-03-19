@@ -1,12 +1,14 @@
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import custom_styles from "../../Hero.module.scss";
-// Import your custom icons from the correct path
 import { ArrowUpIcon } from "public/icons/icons";
+import Image from "next/image";
+import SVGDevider from "public/img/svg/about-devider.svg";
 
 const styles = {
   nextSection:
-    "relative max-w-7xl items-center justify-center  bg-[#020103] text-white text-3xl font-bold mt-[600px] z-40 pt-[calc(10%)] max-w-7xl mx-auto ",
+    "relative max-w-[1200px] items-center justify-center  bg-[#020103] text-white text-3xl font-bold mt-[600px] z-40 pt-[calc(10%)] max-w-7xl mx-auto ",
+  SVGDevider: "absolute top-[200px] r-[-40px] z-[-1] max-w-[1280px]",
 };
 
 const About = () => {
@@ -62,6 +64,11 @@ const About = () => {
           Work in the IT field includes Web Design, UI/UX Design, Branding{" "}
           <br /> and Shopify Development
         </div>
+        <Image
+          className={`${styles.SVGDevider} !w-[1280px]`}
+          src={SVGDevider}
+          alt="Section divider"
+        />
       </div>
     </div>
   );
