@@ -1,12 +1,19 @@
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import custom_styles from "../../Hero.module.scss";
-// Import your custom icons from the correct path
 import { ArrowUpCircleIcon } from "public/icons/icons";
+
+import Image from "next/image";
+import SVGBlob1 from "public/img/svg/SVGBlob1.svg";
+import SVGBlob2 from "public/img/svg/SVGBlob2.svg";
+import SVGBlob3 from "public/img/svg/SVGBlob3.svg";
 
 const styles = {
   nextSection:
-    "relative max-w-7xl items-center justify-center bg-[#020103] text-white text-3xl font-bold mx-auto ",
+    "relative max-w-[1200px] items-center justify-center bg-[#020103] text-white text-3xl font-bold mx-auto ",
+  SVGBlob1: "absolute  left-[-800px] top-[-250px] z-60 ",
+  SVGBlob2: "absolute  right-[-800px] top-[250px] z-60 ",
+  SVGBlob3: "absolute  left-[-800px] top-[750px] z-60 ",
 };
 
 const Services = () => {
@@ -18,7 +25,7 @@ const Services = () => {
         style={{
           display: "flex",
           color: "black",
-          paddingTop: "250px",
+          paddingTop: "140px",
           justifyContent: "space-between",
           alignItems: "flex-end",
         }}
@@ -53,6 +60,9 @@ const Services = () => {
           </Button>
         </div>
       </div>
+      <Image className={styles.SVGBlob1} src={SVGBlob1} alt="Blob1" />
+      <Image className={styles.SVGBlob2} src={SVGBlob2} alt="Blob2" />
+      <Image className={styles.SVGBlob3} src={SVGBlob3} alt="Blob3" />
     </div>
   );
 };
