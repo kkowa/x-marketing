@@ -8,7 +8,8 @@ import SVGDevider from "public/img/svg/about-devider.svg";
 const styles = {
   nextSection:
     "relative max-w-[1200px] items-center justify-center  bg-[#020103] text-white text-3xl font-bold mt-[600px] z-40 pt-[calc(10%)] max-w-7xl mx-auto ",
-  SVGDevider: "absolute top-[200px] r-[-40px] z-[-1] max-w-[1280px]",
+  SVGDevider:
+    "absolute top-[210px] right-[-40px] z-[-1] max-w-[1280px] h-[729px]",
 };
 
 const About = () => {
@@ -55,7 +56,7 @@ const About = () => {
             fontSize: "68px",
             lineHeight: "1.15",
             marginTop: "0",
-            paddingBottom: "40px",
+            paddingBottom: "28px",
           }}
         >
           developing your company for the future
@@ -65,7 +66,7 @@ const About = () => {
           <br /> and Shopify Development
         </div>
         <Image
-          className={`${styles.SVGDevider} !w-[1280px]`}
+          className={styles.SVGDevider}
           src={SVGDevider}
           alt="Section divider"
         />
