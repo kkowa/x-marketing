@@ -9,32 +9,29 @@ import {
   WhatsAppIcon,
   ArrowUpCircleIcon,
 } from "public/icons/icons";
-import { Button } from "@/components/ui/button";
+import { GradientButton } from "@/components/ui/buttons/GradientButton";
+import homeStyles from "@/styles/home.module.scss"; // Renamed for clarity
 
-// Create a styleBuilder function that can handle conditional styles
 const styleBuilder = {
-  // Basic styles that don't change
   base: {
     container: "relative w-full",
     heroSection: "relative h-screen w-full z-10",
     nextSection:
-      "relative h-screen w-full items-center justify-center bg-[#020103] text-white text-3xl font-bold mt-[600px] z-20 px-6 pt-[calc(10%)] max-w-7xl mx-auto",
+      "relative h-screen w-full items-center justify-center bg-[#020103] text-3xl font-bold mt-[600px] z-20 px-6 pt-[calc(10%)] max-w-7xl mx-auto",
     textContainer:
       "absolute top-[calc(50%-80px)] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-4 transition-opacity duration-500 z-10",
-    heading: "text-white text-5xl font-bold mb-6 drop-shadow-lg",
-    description: "text-white max-w-2xl mx-auto drop-shadow-md",
     scrollText: "mb-2 text-sm font-light text-white",
     scrollIconContainer:
       "w-6 h-10 border-2 border-white rounded-full flex justify-center",
     scrollDot: "w-1 h-3 bg-white rounded-full mt-2 animate-bounce",
+    title: "relative text-8xl leading-[1.2] mt-0 pb-[28px]",
+    description: "relative text-base text-white leading-[1.5] mt-0",
   },
-
   // Dynamic style generators
   buttonContainer: (showButton: boolean): string =>
     `fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center transition-all duration-200 z-10 ${
       showButton ? "opacity-100 scale-100" : "opacity-0 scale-95"
     }`,
-
   scrollIndicator: (hideAnimation: boolean): string =>
     `absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-100 z-10 ${
       hideAnimation ? "opacity-0" : "opacity-100"
@@ -46,7 +43,6 @@ const generateStyles = (showButton: boolean, hideScrollAnimation: boolean) => {
   return {
     // Spread the base styles
     ...styleBuilder.base,
-
     // Add dynamic styles
     buttonContainer: styleBuilder.buttonContainer(showButton),
     scrollIndicator: styleBuilder.scrollIndicator(hideScrollAnimation),
@@ -106,12 +102,10 @@ const Hero = () => {
     if (position >= threshold) {
       if (!hideScrollAnimation && !scrollUnlocked && !isUp) {
         setHideScrollAnimation(true);
-
         // Clear any existing timeouts
         if (scrollAnimationTimeoutRef.current) {
           clearTimeout(scrollAnimationTimeoutRef.current);
         }
-
         // Wait before showing the button
         scrollAnimationTimeoutRef.current = window.setTimeout(() => {
           if (window.scrollY >= threshold && !isUp) {
@@ -155,7 +149,6 @@ const Hero = () => {
   const handleScroll = (): void => {
     const position = window.scrollY;
     const windowHeight = window.innerHeight;
-
     // Calculate thresholds based on window height
     const scrollAnimationThreshold =
       windowHeight * SCROLL_ANIMATION_THRESHOLD_FACTOR;
@@ -175,19 +168,15 @@ const Hero = () => {
     }
 
     // Removed setScrollPosition call as the state is no longer used
-
     // Handle scroll animation visibility
     handleScrollAnimationVisibility(position, scrollAnimationThreshold, isUp);
-
     // Handle button visibility
     handleButtonVisibility(position, buttonThreshold, isUp);
-
     // Enforce scroll limit if needed
     const limitEnforced = enforceScrollLimit(position, buttonThreshold);
     if (limitEnforced) {
       return;
     }
-
     lastScrollTopRef.current = position;
   };
 
@@ -196,7 +185,6 @@ const Hero = () => {
     if (!scrollUnlocked) {
       const currentScroll = window.scrollY;
       const threshold = window.innerHeight * BUTTON_THRESHOLD_FACTOR;
-
       if (currentScroll > threshold) {
         e.preventDefault();
         window.scrollTo(0, threshold);
@@ -227,10 +215,8 @@ const Hero = () => {
         passive: false,
       }
     );
-
     // Call handleScroll once on mount to set initial state
     handleScroll();
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener(
@@ -241,7 +227,6 @@ const Hero = () => {
         "touchmove",
         preventDefaultScroll as EventListener
       );
-
       // Clear timeout on unmount
       if (scrollAnimationTimeoutRef.current) {
         clearTimeout(scrollAnimationTimeoutRef.current);
@@ -253,10 +238,8 @@ const Hero = () => {
   useEffect(() => {
     // Run once on mount
     handleResize();
-
     // Add listener for window resize
     window.addEventListener("resize", handleResize);
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -279,11 +262,11 @@ const Hero = () => {
   const renderHeroText = () => (
     <div className={styles.textContainer}>
       {renderSocialIcons()}
-      <h1 className={custom_styles.home__title}>
+      <h1 className={`${homeStyles.titleColor} ${styles.title}`}>
         Amazing website creation <br />
         with Bantu agency
       </h1>
-      <p className={custom_styles.home__description}>
+      <p className={styles.description}>
         help you to build website company that is modern, user friendly, good
         CEO, and Clean design
       </p>
@@ -293,13 +276,9 @@ const Hero = () => {
   // Render explore button
   const renderExploreButton = () => (
     <div className={styles.buttonContainer}>
-      <Button
-        variant="gradient"
-        text="Get Started"
-        onClick={handleExploreClick}
-      >
+      <GradientButton text="Get Started" onClick={handleExploreClick}>
         <ArrowUpCircleIcon />
-      </Button>
+      </GradientButton>
     </div>
   );
 

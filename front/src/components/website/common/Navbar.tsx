@@ -1,11 +1,8 @@
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
+import { GradientButton } from "@/components/ui/buttons/GradientButton";
 
-import {
-  ArrowUpCircleIcon,
-  CompanyLogoIdeogram,
-} from "../../../../public/icons/icons";
+import { ArrowUpCircleIcon, CompanyLogoIdeogram } from "public/icons/icons";
 
 const styles = {
   container: "fixed top-0 left-0 right-0 bg-[#020103] shadow-md py-4 px-6 z-50",
@@ -39,9 +36,9 @@ const Navbar = () => {
             Contact
           </Link>
         </nav>
-        <Button variant="gradient" text="Get Started">
+        <GradientButton text="Get Started">
           <ArrowUpCircleIcon />
-        </Button>
+        </GradientButton>
       </div>
     </header>
   );

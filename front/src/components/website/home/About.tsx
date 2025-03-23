@@ -1,75 +1,82 @@
-import { useRef } from "react";
-import { Button } from "@/components/ui/button";
-import custom_styles from "../../Hero.module.scss";
-import { ArrowUpIcon } from "public/icons/icons";
 import Image from "next/image";
+import { Button } from "@/components/ui/buttons/StandardButton";
+import { ArrowUpIcon } from "public/icons/icons";
 import SVGDevider from "public/img/svg/about-devider.svg";
+import customStyles from "@/styles/home.module.scss";
 
-const styles = {
-  nextSection:
-    "relative max-w-[1200px] items-center justify-center  bg-[#020103] text-white text-3xl font-bold mt-[600px] z-40 pt-[calc(10%)] max-w-7xl mx-auto ",
-  SVGDevider:
-    "absolute top-[210px] right-[-40px] z-[-1] max-w-[1280px] h-[729px]",
+const aboutStyles = {
+  // Main container with responsive width constraints and centering
+  layout:
+    "relative bg-[#020103] mt-[300px] md:mt-[400px] lg:mt-[600px] pt-[calc(10%)] z-40 overflow-visible",
+
+  // Main content wrapper with max-width constraints that change with screen size
+  contentWrapper:
+    "w-full max-w-[90%] sm:max-w-[85%] md:max-w-3xl lg:max-w-4xl xl:max-w-6xl mx-auto flex flex-col",
+
+  headerWrapper:
+    "flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0",
+
+  // Responsive typography
+  titleFirst:
+    "relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.2] pb-0",
+
+  titleSecond:
+    "relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.2] mt-0 pb-[16px] md:pb-[28px]",
+
+  description:
+    "relative text-sm md:text-base text-white leading-[1.5] mt-0 z-31",
+
+  // Updated divider wrapper to always maintain max-w-7xl width
+  dividerWrapper:
+    "absolute left-1/2 transform -translate-x-1/2 top-[calc(100%+16px)] sm:top-[calc(100%+24px)] md:top-8 z-[-1] w-full max-w-7xl",
 };
 
 const About = () => {
-  const nextSectionRef = useRef<HTMLDivElement>(null);
-
   return (
-    <div id="next-section" ref={nextSectionRef} className={styles.nextSection}>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          color: "black",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <div
-            className={custom_styles.home__title}
-            style={{
-              fontSize: "68px",
-              lineHeight: "1.15",
-              paddingBottom: "0px",
-            }}
-          >
-            Companies that can help you in
+    <div id="about" className={aboutStyles.layout}>
+      <div className="relative">
+        <div className={aboutStyles.contentWrapper}>
+          <div className={aboutStyles.headerWrapper}>
+            <div
+              className={`${customStyles.titleColor} ${aboutStyles.titleFirst}`}
+            >
+              Companies that can help you in
+            </div>
+            <Button
+              variant="outline"
+              size="clg"
+              radius="full"
+              text="Know More"
+              className="mt-2 sm:mt-0"
+            >
+              <ArrowUpIcon />
+            </Button>
           </div>
-          <Button
-            variant="outline"
-            size="sm"
-            className="h-[50px] w-[238px] mt-[5px] rounded-full text-black bg-white hover:bg-white/90 z-10 flex items-center gap-2"
+          <div
+            className={`${customStyles.titleColor} ${aboutStyles.titleSecond} relative z-10`}
           >
-            <span className="font-medium">Know More</span>
-            <ArrowUpIcon />
-          </Button>
+            developing your company for the future
+          </div>
+          <div className={aboutStyles.description}>
+            Work in the IT field includes Web Design, UI/UX Design, Branding
+            <br className="hidden md:block" /> and Shopify Development
+          </div>
         </div>
-        <div
-          className={custom_styles.home__title}
-          style={{
-            fontSize: "68px",
-            lineHeight: "1.15",
-            marginTop: "0",
-            paddingBottom: "28px",
-          }}
-        >
-          developing your company for the future
+
+        <div className={aboutStyles.dividerWrapper}>
+          <Image
+            src={SVGDevider}
+            alt="Section divider"
+            priority
+            width={1400}
+            height={350}
+            style={{
+              width: "100%", // Ensure it fills the container width
+              height: "auto",
+              margin: "0 20px", // Center the image
+            }}
+          />
         </div>
-        <div className={custom_styles.home__description}>
-          Work in the IT field includes Web Design, UI/UX Design, Branding{" "}
-          <br /> and Shopify Development
-        </div>
-        <Image
-          className={styles.SVGDevider}
-          src={SVGDevider}
-          alt="Section divider"
-        />
       </div>
     </div>
   );

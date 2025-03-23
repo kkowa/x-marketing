@@ -121,18 +121,14 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@layer base {
-  * {
-  }
-  body {
-    font-family: "Satoshi-Regular", sans-serif;
+body {
+  font-family: "Satoshi-Regular", sans-serif;
+  background-color: rgb(2, 1, 3);
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
 
-    margin: 0;
-    padding: 0;
-    background-color: rgb(2, 1, 3);
-    overflow-x: hidden;
-  }
-  main {
-    flex: 1;
-  }
+main {
+  flex: 1;
 }

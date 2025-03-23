@@ -1,68 +1,52 @@
-import { useRef } from "react";
-import { Button } from "@/components/ui/button";
-import custom_styles from "../../Hero.module.scss";
+import { Button } from "@/components/ui/buttons/StandardButton";
 import { ArrowUpCircleIcon } from "public/icons/icons";
-
 import Image from "next/image";
 import SVGBlob1 from "public/img/svg/SVGBlob1.svg";
 import SVGBlob2 from "public/img/svg/SVGBlob2.svg";
 import SVGBlob3 from "public/img/svg/SVGBlob3.svg";
 
-const styles = {
-  nextSection:
-    "relative max-w-[1200px] items-center justify-center bg-[#020103] text-white text-3xl font-bold mx-auto ",
-  SVGBlob1: "absolute  left-[-800px] top-[-250px] z-60 ",
-  SVGBlob2: "absolute  right-[-800px] top-[250px] z-60 ",
-  SVGBlob3: "absolute  left-[-800px] top-[750px] z-60 ",
+import customStyles from "@/styles/home.module.scss";
+
+const servicesStyles = {
+  layout:
+    "relative max-w-6xl items-center justify-center bg-[#020103] text-white text-3xl font-bold mx-auto",
+  container: "flex text-black pt-[140px] justify-between items-end",
+  titleContainer: "flex items-end",
+  homeDescription: "text-base leading-[1.5] text-gray-700",
+  title: "relative text-6xl leading-[1.2] pb-[28px]",
+  description: "relative text-base text-white leading-[1.5] mt-0 z-31",
+  SVGBlob1: "absolute left-[-800px] top-[-250px] z-60",
+  SVGBlob2: "absolute right-[-800px] top-[250px] z-60",
+  SVGBlob3: "absolute left-[-800px] top-[750px] z-60",
 };
 
 const Services = () => {
-  const nextSectionRef = useRef<HTMLDivElement>(null);
-
   return (
-    <div id="next-section" ref={nextSectionRef} className={styles.nextSection}>
-      <div
-        style={{
-          display: "flex",
-          color: "black",
-          paddingTop: "140px",
-          justifyContent: "space-between",
-          alignItems: "flex-end",
-        }}
-      >
+    <div id="services" className={servicesStyles.layout}>
+      <div className={servicesStyles.container}>
         <div>
-          <div style={{ display: "flex", alignItems: "flex-end" }}>
+          <div className={servicesStyles.titleContainer}>
             <div
-              className={custom_styles.home__title}
-              style={{
-                fontSize: "68px",
-                lineHeight: "1.15",
-                paddingBottom: "40px",
-              }}
+              className={`${customStyles.titleColor} ${servicesStyles.title}`}
             >
               Let&apos;s work together <br /> with our us
             </div>
           </div>
-          <div className={custom_styles.home__description}>
+          <div className={servicesStyles.description}>
             help you to build website company that is modern, user friendly,
             <br />
             good CEO, and Clean design
           </div>
         </div>
-
         <div>
-          <Button
-            variant="outline"
-            className="h-[50px] w-[161px] mt-[5px] rounded-full text-black bg-white hover:bg-white/90 z-10 flex items-center gap-2"
-          >
-            <span className="font-medium">Get Started</span>
+          <Button variant="outline" size="csm" radius="full" text="Get Started">
             <ArrowUpCircleIcon color="black" />
           </Button>
         </div>
       </div>
-      <Image className={styles.SVGBlob1} src={SVGBlob1} alt="Blob1" />
-      <Image className={styles.SVGBlob2} src={SVGBlob2} alt="Blob2" />
-      <Image className={styles.SVGBlob3} src={SVGBlob3} alt="Blob3" />
+      <Image className={servicesStyles.SVGBlob1} src={SVGBlob1} alt="Blob1" />
+      <Image className={servicesStyles.SVGBlob2} src={SVGBlob2} alt="Blob2" />
+      <Image className={servicesStyles.SVGBlob3} src={SVGBlob3} alt="Blob3" />
     </div>
   );
 };
