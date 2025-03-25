@@ -23,3 +23,8 @@ sort z indexes
 
 Next steps (weekend)
 =
+
+
+
+play around with the exact css for the responcivnes 
+
