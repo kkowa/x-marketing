@@ -1,5 +1,13 @@
 import { Button } from "@/components/ui/buttons/StandardButton";
 import { ArrowUpCircleIcon } from "public/icons/icons";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/Card";
 
 const servicesStyles = {
   headerWrapper:
@@ -12,6 +20,12 @@ const servicesStyles = {
     "relative 2xl:text-base xl:text-base lg:text-base md:text-base sm:text-sm text-xs text-white leading-[1.5] mt-4 z-31 whitespace-nowrap overflow-hidden text-ellipsis",
   buttonContainer:
     "2xl:flex xl:flex lg:flex md:flex sm:flex flex 2xl:self-end xl:self-end lg:self-end 2xl:justify-end xl:justify-end lg:justify-end 2xl:w-1/5 xl:w-1/5 lg:w-1/5 md:w-1/2 sm:w-1/2 w-1/2 md:justify-center sm:justify-center justify-center z-30",
+  cardsContainer: "w-ful z-80",
+  cardRow: "flex flex-col lg:flex-row w-full mb-6 gap-6",
+  cardSmall:
+    "w-full lg:w-1/4 shadow-md hover:shadow-lg transition-shadow duration-300",
+  cardLarge:
+    "w-full lg:w-3/4 shadow-md hover:shadow-lg transition-shadow duration-300",
 };
 
 const Services = () => {
@@ -39,6 +53,93 @@ const Services = () => {
           >
             <ArrowUpCircleIcon color="black" />
           </Button>
+        </div>
+      </div>
+      <div id="services-cards" className="py-16">
+        <div className={servicesStyles.cardsContainer}>
+          {/* First Row - 1/4 and 3/4 width */}
+          <div className={servicesStyles.cardRow}>
+            {/* Card 1 - 1/4 width */}
+            <Card className={servicesStyles.cardSmall}>
+              <CardHeader>
+                <CardTitle>Website Dev</CardTitle>
+                {/* <CardDescription>
+                  Modern and responsive websites
+                </CardDescription> */}
+              </CardHeader>
+              <CardContent>
+                <p>
+                  help you to build website company that is modern, user
+                  friendly, good CEO, and Clean design
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="text" size="sm" className="text-blue-600">
+                  Start with us
+                </Button>
+              </CardFooter>
+            </Card>
+
+            {/* Card 2 - 3/4 width */}
+            <Card className={servicesStyles.cardLarge}>
+              <CardHeader>
+                <CardTitle>UI/UX Design</CardTitle>
+                {/* <CardDescription>User-friendly interfaces</CardDescription> */}
+              </CardHeader>
+              <CardContent>
+                <p>
+                  help you to build website company that is modern, user
+                  friendly, good CEO, and Clean design
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="text" size="sm" className="text-blue-600">
+                  Start with us
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
+
+          {/* Second Row - 3/4 and 1/4 width */}
+          <div className={servicesStyles.cardRow}>
+            {/* Card 3 - 3/4 width */}
+            <Card className={servicesStyles.cardLarge}>
+              <CardHeader>
+                <CardTitle>Branding</CardTitle>
+                <CardDescription>Better search rankings</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  help you to build website company that is modern, user
+                  friendly, good CEO, and Clean design
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="text" size="sm" className="text-blue-600">
+                  Start with us
+                </Button>
+              </CardFooter>
+            </Card>
+
+            {/* Card 4 - 1/4 width */}
+            <Card className={servicesStyles.cardSmall}>
+              <CardHeader>
+                <CardTitle>Shopify</CardTitle>
+                <CardDescription>Engaging digital content</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  help you to build website company that is modern, user
+                  friendly, good CEO, and Clean design
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="text" size="sm" className="text-blue-600">
+                  Start with us
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
         </div>
       </div>
     </>
