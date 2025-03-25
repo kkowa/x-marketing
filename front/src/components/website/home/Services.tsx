@@ -9,6 +9,18 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 
+import Image from "next/image";
+
+import ServiceIcon1 from "public/img/svg/services/service-icon-1.svg";
+import ServiceIcon2 from "public/img/svg/services/service-icon-2.svg";
+import ServiceIcon3 from "public/img/svg/services/service-icon-3.svg";
+import ServiceIcon4 from "public/img/svg/services/service-icon-4.svg";
+
+import ServiceImg1 from "public/img/svg/services/service-img-1.svg";
+import ServiceImg2 from "public/img/svg/services/service-img-2.svg";
+import ServiceImg3 from "public/img/svg/services/service-img-3.svg";
+import ServiceImg4 from "public/img/svg/services/service-img-4.svg";
+
 const servicesStyles = {
   headerWrapper:
     "relative flex text-black 2xl:pt-[140px] xl:pt-[140px] lg:pt-[140px] flex-col md:flex-col sm:flex-col 2xl:flex-row xl:flex-row lg:flex-row 2xl:justify-between xl:justify-between lg:justify-between md:justify-center sm:justify-center justify-center 2xl:items-end xl:items-end lg:items-end md:items-center sm:items-center items-center w-full 2xl:mt-0 xl:mt-0 lg:mt-0 md:-mt-[200px] sm:-mt-[160px] xs:-mt-[130px] -mt-[112px]",
@@ -23,9 +35,9 @@ const servicesStyles = {
   cardsContainer: "w-ful z-80",
   cardRow: "flex flex-col lg:flex-row w-full mb-6 gap-6",
   cardSmall:
-    "w-full lg:w-1/4 shadow-md hover:shadow-lg transition-shadow duration-300",
+    "w-full lg:w-[57.5%] md:w-[100%] sm:w-[100%] xs:w-[100%] w-[100%] size-[320px] shadow-md hover:shadow-lg transition-shadow duration-300",
   cardLarge:
-    "w-full lg:w-3/4 shadow-md hover:shadow-lg transition-shadow duration-300",
+    "w-full lg:w-[42.5%] md:w-[100%] sm:w-[100%] xs:w-[100%] w-[100%] size-[320px] shadow-md hover:shadow-lg transition-shadow duration-300",
 };
 
 const Services = () => {
@@ -57,87 +69,94 @@ const Services = () => {
       </div>
       <div id="services-cards" className="py-16">
         <div className={servicesStyles.cardsContainer}>
-          {/* First Row - 1/4 and 3/4 width */}
           <div className={servicesStyles.cardRow}>
-            {/* Card 1 - 1/4 width */}
-            <Card className={servicesStyles.cardSmall}>
-              <CardHeader>
-                <CardTitle>Website Dev</CardTitle>
-                {/* <CardDescription>
-                  Modern and responsive websites
-                </CardDescription> */}
-              </CardHeader>
-              <CardContent>
-                <p>
-                  help you to build website company that is modern, user
-                  friendly, good CEO, and Clean design
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="text" size="sm" className="text-blue-600">
-                  Start with us
-                </Button>
-              </CardFooter>
+            <Card className={`flex bg-[#504CFF] ${servicesStyles.cardSmall}`}>
+              <div>
+                <Image src={ServiceIcon1} alt="service image 1" />
+                <CardHeader>
+                  <CardTitle className="text-white">Website Dev</CardTitle>
+                </CardHeader>
+                <CardContent className="text-white">
+                  <p>
+                    help you to build website company that is modern, user
+                    friendly, good CEO, and Clean design
+                  </p>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="text" size="sm" className="text-white">
+                    Start with us
+                  </Button>
+                </CardFooter>
+              </div>
+              <Image src={ServiceImg1} alt="service image 1" />
             </Card>
 
-            {/* Card 2 - 3/4 width */}
-            <Card className={servicesStyles.cardLarge}>
-              <CardHeader>
-                <CardTitle>UI/UX Design</CardTitle>
-                {/* <CardDescription>User-friendly interfaces</CardDescription> */}
-              </CardHeader>
-              <CardContent>
-                <p>
-                  help you to build website company that is modern, user
-                  friendly, good CEO, and Clean design
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="text" size="sm" className="text-blue-600">
-                  Start with us
-                </Button>
-              </CardFooter>
+            <Card className={`flex bg-[#151515] ${servicesStyles.cardLarge}`}>
+              <div>
+                <Image src={ServiceIcon2} alt="service icon 2" />
+                <CardHeader>
+                  <CardTitle className="text-white">UI/UX Design</CardTitle>
+                </CardHeader>
+                <CardContent className="text-white">
+                  <p>
+                    help you to build website company that is modern, user
+                    friendly, good CEO, and Clean design
+                  </p>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="text" size="sm" className="text-white">
+                    Start with us
+                  </Button>
+                </CardFooter>
+              </div>
+              <Image src={ServiceImg2} alt="service icon 2" />
             </Card>
           </div>
 
-          {/* Second Row - 3/4 and 1/4 width */}
           <div className={servicesStyles.cardRow}>
-            {/* Card 3 - 3/4 width */}
-            <Card className={servicesStyles.cardLarge}>
-              <CardHeader>
-                <CardTitle>Branding</CardTitle>
-                <CardDescription>Better search rankings</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  help you to build website company that is modern, user
-                  friendly, good CEO, and Clean design
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="text" size="sm" className="text-blue-600">
-                  Start with us
-                </Button>
-              </CardFooter>
+            <Card className={`flex bg-[#151515] ${servicesStyles.cardLarge}`}>
+              <div>
+                <Image src={ServiceIcon3} alt="service icon 3" />
+                <CardHeader>
+                  <CardTitle className="text-white">Branding</CardTitle>
+                  <CardDescription className="text-white">
+                    Better search rankings
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="text-white">
+                  <p>
+                    help you to build website company that is modern, user
+                    friendly, good CEO, and Clean design
+                  </p>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="text" size="sm" className="text-white">
+                    Start with us
+                  </Button>
+                </CardFooter>
+              </div>
+              <Image src={ServiceImg3} alt="service icon 3" />
             </Card>
 
-            {/* Card 4 - 1/4 width */}
-            <Card className={servicesStyles.cardSmall}>
-              <CardHeader>
-                <CardTitle>Shopify</CardTitle>
-                <CardDescription>Engaging digital content</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  help you to build website company that is modern, user
-                  friendly, good CEO, and Clean design
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="text" size="sm" className="text-blue-600">
-                  Start with us
-                </Button>
-              </CardFooter>
+            <Card className={`flex bg-[#854CFF] ${servicesStyles.cardSmall}`}>
+              <div>
+                <Image src={ServiceIcon4} alt="service icon 4" />
+                <CardHeader>
+                  <CardTitle className="text-white">Shopify</CardTitle>
+                </CardHeader>
+                <CardContent className="text-white">
+                  <p>
+                    help you to build website company that is modern, user
+                    friendly, good CEO, and Clean design
+                  </p>
+                </CardContent>
+                <CardFooter>
+                  <Button variant="text" size="sm" className="text-white">
+                    Start with us
+                  </Button>
+                </CardFooter>
+              </div>
+              <Image src={ServiceImg4} alt="service icon 4" />
             </Card>
           </div>
         </div>
