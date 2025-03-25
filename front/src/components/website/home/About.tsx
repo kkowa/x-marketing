@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/buttons/StandardButton";
 import { ArrowUpIcon } from "public/icons/icons";
-import SVGDevider from "public/img/svg/about-devider.svg";
+import SVGDevider1 from "public/img/svg/about-devider-large.svg";
+import SVGDevider2 from "public/img/svg/about-devider-small.svg";
 
 const aboutStyles = {
   headerWrapper: "relative",
@@ -13,10 +14,14 @@ const aboutStyles = {
     "relative 2xl:text-base xl:text-base lg:text-base md:text-base sm:text-sm text-xs text-white leading-[1.5] mt-4 z-20",
   buttonContainer:
     "static 2xl:absolute xl:absolute lg:absolute md:static sm:static static 2xl:right-0 xl:right-0 lg:right-0 2xl:top-[15px] xl:top-[15px] lg:top-[15px] 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-6 sm:mt-6 mt-6 z-30 flex 2xl:w-1/4 xl:w-1/4 lg:w-1/4 md:flex sm:flex flex justify-center",
-  SVGDeviderWrapper:
+  SVGDeviderWrapper1:
     "absolute hidden 2xl:flex xl:flex lg:flex 2xl:top-8 xl:top-8 lg:top-8 left-0 w-full justify-center z-10 pointer-events-none",
-  SVGDevider:
+  SVGDevider1:
     "w-[calc(100%+60px)] 2xl:max-w-[calc(100%+60px)] xl:max-w-[calc(100%+60px)] lg:max-w-[calc(100%+60px)] 2xl:h-auto xl:h-auto lg:h-auto",
+  SVGDeviderWrapper2:
+    "relative flex md:flex sm:flex -mt-8 w-full justify-center z-10 pointer-events-none lg:hidden xl:hidden 2xl:hidden",
+  SVGDevider2:
+    "w-[calc(100%+60px)] max-w-[calc(100%+60px)] md:max-w-[calc(100%+60px)] sm:max-w-[calc(100%+60px)] h-auto md:h-auto sm:h-auto",
 };
 
 const About = () => {
@@ -43,11 +48,18 @@ const About = () => {
             <ArrowUpIcon />
           </Button>
         </div>
-        <div className={aboutStyles.SVGDeviderWrapper}>
+        <div className={aboutStyles.SVGDeviderWrapper1}>
           <Image
-            src={SVGDevider}
-            className={aboutStyles.SVGDevider}
-            alt="Divider"
+            src={SVGDevider1}
+            className={aboutStyles.SVGDevider1}
+            alt="divider on large screen"
+          />
+        </div>
+        <div className={aboutStyles.SVGDeviderWrapper2}>
+          <Image
+            src={SVGDevider2}
+            className={aboutStyles.SVGDevider2}
+            alt="divider on small screen"
           />
         </div>
       </div>

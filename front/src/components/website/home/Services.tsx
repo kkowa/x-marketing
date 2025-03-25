@@ -1,36 +1,25 @@
 import { Button } from "@/components/ui/buttons/StandardButton";
 import { ArrowUpCircleIcon } from "public/icons/icons";
-import Image from "next/image";
-import SVGBlob1 from "public/img/svg/SVGBlob1.svg";
-import SVGBlob2 from "public/img/svg/SVGBlob2.svg";
-import SVGBlob3 from "public/img/svg/SVGBlob3.svg";
-
-import customStyles from "@/styles/home.module.scss";
 
 const servicesStyles = {
-  layout:
-    "relative max-w-6xl items-center justify-center bg-[#020103] text-white text-3xl font-bold mx-auto",
-  container: "flex text-black pt-[140px] justify-between items-end",
-  titleContainer: "flex items-end",
-  homeDescription: "text-base leading-[1.5] text-gray-700",
-  title: "relative text-6xl leading-[1.2] pb-[28px]",
+  headerWrapper:
+    "relative flex text-black 2xl:pt-[140px] xl:pt-[140px] lg:pt-[140px] 2xl:flex-row xl:flex-row lg:flex-row md:flex-col sm:flex-col flex-col 2xl:justify-between xl:justify-between lg:justify-between md:justify-center sm:justify-center justify-center 2xl:items-end xl:items-end lg:items-end md:items-center sm:items-center items-center w-full",
+  textContainer:
+    "w-full 2xl:text-left xl:text-left lg:text-left md:text-center sm:text-center text-center",
+  title:
+    "relative 2xl:text-6xl xl:text-6xl lg:text-5xl md:text-5xl sm:text-4xl text-3xl leading-[1.2] pb-0",
   description: "relative text-base text-white leading-[1.5] mt-0 z-31",
-  SVGBlob1: "absolute left-[-800px] top-[-250px] z-60",
-  SVGBlob2: "absolute right-[-800px] top-[250px] z-60",
-  SVGBlob3: "absolute left-[-800px] top-[750px] z-60",
+  buttonContainer:
+    "2xl:flex xl:flex lg:flex md:flex sm:flex flex 2xl:self-end xl:self-end lg:self-end 2xl:justify-end xl:justify-end lg:justify-end 2xl:w-1/5 xl:w-1/5 lg:w-1/5 md:w-1/2 sm:w-1/2 w-1/2 md:justify-center sm:justify-center justify-center md:mt-6 sm:mt-6 mt-6 z-30",
 };
 
 const Services = () => {
   return (
-    <div id="services" className={servicesStyles.layout}>
-      <div className={servicesStyles.container}>
-        <div>
-          <div className={servicesStyles.titleContainer}>
-            <div
-              className={`${customStyles.titleColor} ${servicesStyles.title}`}
-            >
-              Let&apos;s work together <br /> with our us
-            </div>
+    <>
+      <div className={servicesStyles.headerWrapper}>
+        <div className={servicesStyles.textContainer}>
+          <div className={`title-color ${servicesStyles.title}`}>
+            Let&apos;s work together <br /> with our us
           </div>
           <div className={servicesStyles.description}>
             help you to build website company that is modern, user friendly,
@@ -38,16 +27,19 @@ const Services = () => {
             good CEO, and Clean design
           </div>
         </div>
-        <div>
-          <Button variant="outline" size="csm" radius="full" text="Get Started">
+        <div className={servicesStyles.buttonContainer}>
+          <Button
+            variant="outline"
+            size="csm"
+            radius="full"
+            text="Get Started"
+            className="2xl:w-full xl:w-full lg:w-full md:w-full sm:w-full w-full 2xl:h-12 xl:h-12 lg:h-12 md:h-12 sm:h-12 h-10 2xl:px-6 xl:px-6 lg:px-6 md:px-6 sm:px-6 px-4"
+          >
             <ArrowUpCircleIcon color="black" />
           </Button>
         </div>
       </div>
-      <Image className={servicesStyles.SVGBlob1} src={SVGBlob1} alt="Blob1" />
-      <Image className={servicesStyles.SVGBlob2} src={SVGBlob2} alt="Blob2" />
-      <Image className={servicesStyles.SVGBlob3} src={SVGBlob3} alt="Blob3" />
-    </div>
+    </>
   );
 };
 
