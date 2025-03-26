@@ -35,13 +35,78 @@ const servicesStyles = {
     "2xl:flex xl:flex lg:flex md:flex sm:flex flex 2xl:self-end xl:self-end lg:self-end 2xl:justify-end xl:justify-end lg:justify-end 2xl:w-1/5 xl:w-1/5 lg:w-1/5 md:w-1/2 sm:w-1/2 w-1/2 md:justify-center sm:justify-center justify-center z-30",
   cardsContainer: "w-ful",
   cardRow: "flex flex-col lg:flex-row w-full mb-6 gap-6",
+  cardIcon: "w-[60px] h-[60px] mb-8",
   cardLarge:
-    "w-full 2xl:w-[57.5%] xl:w-[57.5%] lg:w-[57.5%] md:w-[100%] sm:w-[100%] xs:w-[100%] w-[100%] size-87.5 shadow-md hover:shadow-lg transition-shadow duration-300",
+    "relative overflow-hidden  w-full 2xl:w-[57.5%] xl:w-[57.5%] lg:w-[57.5%] md:w-[100%] sm:w-[100%] xs:w-[100%] w-[100%] size-87.5 shadow-md hover:shadow-lg transition-shadow duration-300",
+  cardLargeDescriptionContainer:
+    "2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-1/2 sm:w-1/2 xs:w-full w-full h-full px-8 py-10 flex flex-col",
   cardSmall:
-    "w-full lg:w-[42.5%] md:w-[100%] sm:w-[100%] xs:w-[100%] w-[100%] size-87.5 shadow-md hover:shadow-lg transition-shadow duration-300",
+    "relative overflow-hidden w-full lg:w-[42.5%] md:w-[100%] sm:w-[100%] xs:w-[100%] w-[100%] size-87.5 shadow-md hover:shadow-lg transition-shadow duration-300",
+  cardSmallDescriptionContainer:
+    "2xl:w-2/3 xl:w-2/3 lg:w-2/3 md:w-1/2 sm:w-1/2 xs:w-full w-full h-full px-8 py-10 flex flex-col",
   cardTitle: "text-4xl font-medium text-white",
-  cardDescription: "text-white",
+  CardDescriptionContainer: "flex flex-col justify-between flex-grow",
+  cardDescriptionText: "text-white",
+  cardImage: "w-full h-auto object-cover",
   cardButton: "text-white underline",
+  cardButtonColor: "white",
+};
+
+const content = {
+  title1: "Website Dev",
+  icon1Alt: "service image 1",
+  image1Alt: "service image 1",
+  title2: "UI/UX Design",
+  icon2Alt: "service image 2",
+  image2Alt: "service image 2",
+  title3: "Branding",
+  icon3Alt: "service image 3",
+  image3Alt: "service image 3",
+  title4: "Shopify",
+  icon4Alt: "service image 4",
+  image4Alt: "service image 4",
+  description:
+    "help you to build website company that is modern, user friendly, good CEO, and Clean design",
+  button: "Start with us",
+};
+
+const ServicesCardDescription = (
+  cardSizeSpecificDescriptionContainer: string,
+  serviceIconSrc: string,
+  cardIcon: string,
+  iconAlt: string,
+  cardDescriptionContainer: string,
+  cardTitleContainer: string,
+  title: string,
+  cardDescriptionTextContainer: string,
+  description: string,
+  buttonText: string,
+  cardButtonStyle: string,
+  cardButtonColor: string
+) => {
+  return (
+    <div className={cardSizeSpecificDescriptionContainer}>
+      <Image src={serviceIconSrc} className={cardIcon} alt={iconAlt} />
+      <div className={cardDescriptionContainer}>
+        <CardHeader>
+          <CardTitle className={cardTitleContainer}>{title}</CardTitle>
+        </CardHeader>
+        <CardContent className={cardDescriptionTextContainer}>
+          <p>{description}</p>
+        </CardContent>
+        <CardFooter>
+          <Button
+            variant="link"
+            size="sm"
+            text={buttonText}
+            className={cardButtonStyle}
+          >
+            <ArrowUpIcon color={cardButtonColor} />
+          </Button>
+        </CardFooter>
+      </div>
+    </div>
+  );
 };
 
 const Services = () => {
@@ -74,133 +139,102 @@ const Services = () => {
       <div id="services-cards" className="py-16">
         <div className={servicesStyles.cardsContainer}>
           <div className={servicesStyles.cardRow}>
-            <Card
-              className={`bg-[#504CFF] relative overflow-hidden  ${servicesStyles.cardLarge}`}
-            >
-              <div className="2xl:w-2/4 xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-2/4 xs:w-full w-full h-full px-8 py-10 flex flex-col ">
-                <Image
-                  src={ServiceIcon1}
-                  className="w-[60px] h-[60px] mb-8"
-                  alt="service image 1"
-                />
-                <div className="flex flex-col justify-between flex-grow">
-                  <CardHeader>
-                    <CardTitle className={`${servicesStyles.cardTitle}`}>
-                      Website Dev
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className={servicesStyles.cardDescription}>
-                    <p>
-                      help you to build website company that is modern, user
-                      friendly, good CEO, and Clean design
-                    </p>
-                  </CardContent>
-                  <CardFooter>
-                    <Button
-                      variant="link"
-                      size="sm"
-                      text="Start with us"
-                      className={servicesStyles.cardButton}
-                    >
-                      <ArrowUpIcon color="white" />
-                    </Button>
-                  </CardFooter>
-                </div>
-              </div>
+            <Card className={`bg-[#504CFF] ${servicesStyles.cardLarge}`}>
+              {ServicesCardDescription(
+                servicesStyles.cardLargeDescriptionContainer,
+                ServiceIcon1,
+                servicesStyles.cardIcon,
+                content.icon1Alt,
+                servicesStyles.CardDescriptionContainer,
+                servicesStyles.cardTitle,
+                content.title1,
+                servicesStyles.cardDescriptionText,
+                content.description,
+                content.button,
+                servicesStyles.cardButton,
+                servicesStyles.cardButtonColor
+              )}
               <div className="absolute top-10 sm:-right-36 xs:-right-56 sm:block hidden  2xl:w-[71%] xl:w-[71%] lg:w-[71%] md:w-[56%] sm:w-[72%] xs:w-[98%] overflow-hidden">
                 <Image
                   src={ServiceImg1}
-                  alt="service image 1"
-                  className="w-full h-auto object-cover"
+                  alt={content.image1Alt}
+                  className={servicesStyles.cardImage}
                 />
               </div>
             </Card>
 
-            <Card className={`flex bg-[#151515] ${servicesStyles.cardSmall}`}>
-              <div>
-                <Image src={ServiceIcon2} alt="service icon 2" />
-                <CardHeader>
-                  <CardTitle className={servicesStyles.cardTitle}>
-                    UI/UX Design
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className={servicesStyles.cardDescription}>
-                  <p>
-                    help you to build website company that is modern, user
-                    friendly, good CEO, and Clean design
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button
-                    variant="link"
-                    size="sm"
-                    className={servicesStyles.cardButton}
-                  >
-                    Start with us
-                  </Button>
-                </CardFooter>
+            <Card className={`bg-[#151515] ${servicesStyles.cardSmall}`}>
+              {ServicesCardDescription(
+                servicesStyles.cardSmallDescriptionContainer,
+                ServiceIcon2,
+                servicesStyles.cardIcon,
+                content.icon2Alt,
+                servicesStyles.CardDescriptionContainer,
+                servicesStyles.cardTitle,
+                content.title2,
+                servicesStyles.cardDescriptionText,
+                content.description,
+                content.button,
+                servicesStyles.cardButton,
+                servicesStyles.cardButtonColor
+              )}
+              <div className="absolute top-10 sm:-right-12 xs:-right-12 sm:block hidden  2xl:w-[46%] xl:w-[46%] lg:w-[46%] md:w-[46%] sm:w-[57%] xs:w-[98%] overflow-hidden">
+                <Image
+                  src={ServiceImg2}
+                  className={servicesStyles.cardImage}
+                  alt={content.image2Alt}
+                />
               </div>
-              <Image src={ServiceImg2} alt="service icon 2" />
             </Card>
           </div>
 
           <div className={servicesStyles.cardRow}>
             <Card className={`flex bg-[#151515] ${servicesStyles.cardSmall}`}>
-              <div>
-                <Image src={ServiceIcon3} alt="service icon 3" />
-                <CardHeader>
-                  <CardTitle className={servicesStyles.cardTitle}>
-                    Branding
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className={servicesStyles.cardDescription}>
-                  <p>
-                    help you to build website company that is modern, user
-                    friendly, good CEO, and Clean design
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button
-                    variant="link"
-                    size="sm"
-                    className={servicesStyles.cardButton}
-                  >
-                    Start with us
-                  </Button>
-                </CardFooter>
+              {ServicesCardDescription(
+                servicesStyles.cardSmallDescriptionContainer,
+                ServiceIcon3,
+                servicesStyles.cardIcon,
+                content.icon3Alt,
+                servicesStyles.CardDescriptionContainer,
+                servicesStyles.cardTitle,
+                content.title3,
+                servicesStyles.cardDescriptionText,
+                content.description,
+                content.button,
+                servicesStyles.cardButton,
+                servicesStyles.cardButtonColor
+              )}
+              <div className="absolute top-10 lg:-right-36 md:-right-40 xs:-right-36 sm:block hidden  2xl:w-[94%] xl:w-[94%] lg:w-[94%] md:w-[80%] sm:w-[94%] xs:w-[98%] overflow-hidden">
+                <Image
+                  src={ServiceImg3}
+                  className={servicesStyles.cardImage}
+                  alt={content.image3Alt}
+                />
               </div>
-              <Image
-                src={ServiceImg3}
-                className="w-[48%]"
-                alt="service icon 3"
-              />
             </Card>
 
             <Card className={`flex bg-[#854CFF] ${servicesStyles.cardLarge}`}>
-              <div>
-                <Image src={ServiceIcon4} alt="service icon 4" />
-                <CardHeader>
-                  <CardTitle className={servicesStyles.cardTitle}>
-                    Shopify
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className={servicesStyles.cardDescription}>
-                  <p>
-                    help you to build website company that is modern, user
-                    friendly, good CEO, and Clean design
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button
-                    variant="link"
-                    size="sm"
-                    className={servicesStyles.cardButton}
-                  >
-                    Start with us
-                  </Button>
-                </CardFooter>
+              {ServicesCardDescription(
+                servicesStyles.cardLargeDescriptionContainer,
+                ServiceIcon4,
+                servicesStyles.cardIcon,
+                content.icon4Alt,
+                servicesStyles.CardDescriptionContainer,
+                servicesStyles.cardTitle,
+                content.title4,
+                servicesStyles.cardDescriptionText,
+                content.description,
+                content.button,
+                servicesStyles.cardButton,
+                servicesStyles.cardButtonColor
+              )}
+              <div className="absolute top-10 sm:-right-18 xs:-right-56 sm:block hidden  2xl:w-[58%] xl:w-[58%] lg:w-[58%] md:w-[52%] sm:w-[60%] xs:w-[60%] overflow-hidden">
+                <Image
+                  src={ServiceImg4}
+                  className={servicesStyles.cardImage}
+                  alt={content.image4Alt}
+                />
               </div>
-              <Image src={ServiceImg4} alt="service icon 4" />
             </Card>
           </div>
         </div>
