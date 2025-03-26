@@ -20,8 +20,6 @@ import ServiceImg2 from "public/img/svg/services/service-img-2.svg";
 import ServiceImg3 from "public/img/svg/services/service-img-3.svg";
 import ServiceImg4 from "public/img/svg/services/service-img-4.svg";
 
-import ServiceDevider2 from "public/img/svg/service-devider-2.svg";
-
 import { ArrowUpIcon } from "public/icons/Icons";
 
 const servicesStyles = {
@@ -240,12 +238,6 @@ const Services = () => {
             </Card>
           </div>
         </div>
-      </div>
-      <div
-        id="service-card-deviders"
-        className="relative w-screen left-1/2 transform -translate-x-1/2 flex justify-center"
-      >
-        <Image src={ServiceDevider2} alt="" />
       </div>
     </>
   );
