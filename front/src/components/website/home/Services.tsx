@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/buttons/StandardButton";
-import { ArrowUpCircleIcon } from "public/icons/icons";
+import { ArrowUpCircleIcon } from "public/icons/Icons";
 import {
   Card,
   CardContent,
@@ -20,7 +20,9 @@ import ServiceImg2 from "public/img/svg/services/service-img-2.svg";
 import ServiceImg3 from "public/img/svg/services/service-img-3.svg";
 import ServiceImg4 from "public/img/svg/services/service-img-4.svg";
 
-import { ArrowUpIcon } from "public/icons/icons";
+import ServiceDevider2 from "public/img/svg/service-devider-2.svg";
+
+import { ArrowUpIcon } from "public/icons/Icons";
 
 const servicesStyles = {
   headerWrapper:
@@ -112,7 +114,7 @@ const ServicesCardDescription = (
 const Services = () => {
   return (
     <>
-      <div className={servicesStyles.headerWrapper}>
+      <div id="service-card-header" className={servicesStyles.headerWrapper}>
         <div className={servicesStyles.textContainer}>
           <div className={`title-color ${servicesStyles.title}`}>
             Let&apos;s work together{" "}
@@ -136,7 +138,7 @@ const Services = () => {
           </Button>
         </div>
       </div>
-      <div id="services-cards" className="py-16">
+      <div id="service-cards" className="py-16">
         <div className={servicesStyles.cardsContainer}>
           <div className={servicesStyles.cardRow}>
             <Card className={`bg-[#504CFF] ${servicesStyles.cardLarge}`}>
@@ -238,6 +240,12 @@ const Services = () => {
             </Card>
           </div>
         </div>
+      </div>
+      <div
+        id="service-card-deviders"
+        className="relative w-screen left-1/2 transform -translate-x-1/2 flex justify-center"
+      >
+        <Image src={ServiceDevider2} alt="" />
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/buttons/StandardButton";
-import { ArrowUpIcon } from "public/icons/icons";
+import { ArrowUpIcon } from "public/icons/Icons";
 import SVGDevider1 from "public/img/svg/about-devider-large.svg";
 import SVGDevider2 from "public/img/svg/about-devider-small.svg";
 

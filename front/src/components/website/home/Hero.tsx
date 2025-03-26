@@ -8,7 +8,7 @@ import {
   TwitterIcon,
   WhatsAppIcon,
   ArrowUpCircleIcon,
-} from "public/icons/icons";
+} from "public/icons/Icons";
 import { GradientButton } from "@/components/ui/buttons/GradientButton";
 import homeStyles from "@/styles/home.module.scss"; // Renamed for clarity
 
