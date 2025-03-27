@@ -8,9 +8,11 @@ import Contact from "@/components/website/home/Contact";
 export default function Home() {
   return (
     <>
-      <div>
+      <div className="relative">
         <About />
-        <Services />
+        <div className="relative z-20">
+          <Services />
+        </div>
       </div>
       <Stripe />
       <Portfolio />
