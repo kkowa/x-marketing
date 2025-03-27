@@ -5,7 +5,6 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "@/styles/home.module.scss";
 
-// Define types for props and images
 type ImageObject = {
   src: string;
   alt?: string;
@@ -29,7 +28,7 @@ type MarqueeProps = {
 
 export default function Marquee({
   text = "",
-  speed = 20, // Default speed (lower number = faster)
+  speed = 20,
   backgroundColor = "#000000",
   textColor = "#ffffff",
   fontSize = "24px",
@@ -60,9 +59,15 @@ export default function Marquee({
       return null;
     }
 
-    // Making sure we have enough images for a visually infinite loop
-    // We repeat the entire set of images multiple times to ensure coverage
-    const duplicatedImages = [...images, ...images, ...images, ...images];
+
+    const duplicatedImages = [
+      ...images,
+      ...images,
+      ...images,
+      ...images,
+      ...images,
+      ...images,
+    ];
 
     return duplicatedImages.map((image, index) => (
       <div
