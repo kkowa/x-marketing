@@ -264,6 +264,18 @@ const Services = () => {
               className="absolute top-0 left-0 w-full"
               alt=""
             ></Image>
+            <div className="rotate-2 -mt-40">
+              <Marquee
+                images={[Logo1, Logo2, Logo3]}
+                showText={false}
+                imageSize={60}
+                backgroundColor="transparent"
+                height="80px"
+                speed={8}
+                gap="30px"
+                direction="left"
+              />
+            </div>
           </div>
           <Image
             src={DeviderLarge}
@@ -271,18 +283,7 @@ const Services = () => {
             alt="divider on large screen"
           />
         </div>
-        <div>
-          <Marquee
-            images={[Logo1, Logo2, Logo3]}
-            showText={false}
-            imageSize={60}
-            backgroundColor="transparent"
-            height="80px"
-            speed={15}
-            gap="30px"
-            direction="left"
-          />
-        </div>
+        <div></div>
       </div>
     </>
   );

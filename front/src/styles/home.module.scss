@@ -80,70 +80,56 @@
   -webkit-text-fill-color: transparent;
 }
 
-.marqueeContainer {
-  width: 100%;
+.marqueeWrapper {
   position: relative;
-  display: flex;
+  width: 100%;
   overflow: hidden;
-  white-space: nowrap;
-  user-select: none;
-}
-
-.marqueeInner {
   display: flex;
-  animation-name: marqueeAnimation;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  min-width: 100%;
-  padding-left: 100%; /* Start with items outside the container */
+  align-items: center;
 }
 
-.marqueeItem {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-shrink: 0;
+.track {
+  display: flex;
+  flex-wrap: nowrap;
   white-space: nowrap;
-
-  span {
-    display: inline-block;
-    vertical-align: middle;
-  }
+  will-change: transform;
+  animation: marquee 20s linear infinite;
 }
 
-.imageContainer {
+.item {
   display: inline-flex;
   align-items: center;
-
-  img {
-    display: inline-block;
-    vertical-align: middle;
-  }
+  flex-shrink: 0;
 }
 
-@keyframes marqueeAnimation {
+@keyframes marquee {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    /* This creates an infinite loop by moving exactly enough to make it seamless */
+    transform: translateX(calc(-25% * 4)); /* 4 duplicates of original images */
   }
 }
 
-/* Optional: Pause animation on hover */
-.marqueeContainer:hover .marqueeInner {
+/* Optional: Pause on hover */
+.marqueeWrapper:hover .track {
   animation-play-state: paused;
 }
 
 /* For responsive behavior */
 @media (max-width: 768px) {
-  .marqueeInner {
+  .track {
     animation-duration: 15s !important; /* Speed up on mobile */
   }
 }
 
 @media (max-width: 480px) {
-  .marqueeInner {
+  .track {
     animation-duration: 10s !important; /* Even faster on small devices */
   }
+}
+
+.rotated-div {
+  transform: rotate(-90deg); /* -2% of a full 360° rotation */
 }
