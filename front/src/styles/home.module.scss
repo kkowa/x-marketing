@@ -79,3 +79,71 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.marqueeContainer {
+  width: 100%;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.marqueeInner {
+  display: flex;
+  animation-name: marqueeAnimation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  min-width: 100%;
+  padding-left: 100%; /* Start with items outside the container */
+}
+
+.marqueeItem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  white-space: nowrap;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.imageContainer {
+  display: inline-flex;
+  align-items: center;
+
+  img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+@keyframes marqueeAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Optional: Pause animation on hover */
+.marqueeContainer:hover .marqueeInner {
+  animation-play-state: paused;
+}
+
+/* For responsive behavior */
+@media (max-width: 768px) {
+  .marqueeInner {
+    animation-duration: 15s !important; /* Speed up on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .marqueeInner {
+    animation-duration: 10s !important; /* Even faster on small devices */
+  }
+}

@@ -24,8 +24,12 @@ import DeviderLarge from "public/img/svg/services-devider.svg";
 
 import MarqueeBackground1 from "public/img/svg/marquee-background-1.svg";
 import MarqueeBackground2 from "public/img/svg/marquee-background-2.svg";
+import Logo1 from "public/img/svg/logo1.svg";
+import Logo2 from "public/img/svg/logo2.svg";
+import Logo3 from "public/img/svg/logo3.svg";
 
 import { ArrowUpIcon } from "public/icons/Icons";
+import Marquee from "@/components/animations/Marquee";
 
 const servicesStyles = {
   headerWrapper:
@@ -265,6 +269,18 @@ const Services = () => {
             src={DeviderLarge}
             className={servicesStyles.DeviderLarge}
             alt="divider on large screen"
+          />
+        </div>
+        <div>
+          <Marquee
+            images={[Logo1, Logo2, Logo3]}
+            showText={false}
+            imageSize={60}
+            backgroundColor="transparent"
+            height="80px"
+            speed={15}
+            gap="30px"
+            direction="left"
           />
         </div>
       </div>
