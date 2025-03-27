@@ -20,6 +20,11 @@ import ServiceImg2 from "public/img/svg/services/service-img-2.svg";
 import ServiceImg3 from "public/img/svg/services/service-img-3.svg";
 import ServiceImg4 from "public/img/svg/services/service-img-4.svg";
 
+import DeviderLarge from "public/img/svg/services-devider.svg";
+
+import MarqueeBackground1 from "public/img/svg/marquee-background-1.svg";
+import MarqueeBackground2 from "public/img/svg/marquee-background-2.svg";
+
 import { ArrowUpIcon } from "public/icons/Icons";
 
 const servicesStyles = {
@@ -50,6 +55,13 @@ const servicesStyles = {
   cardImage: "w-full h-auto object-cover",
   cardButton: "text-white underline",
   cardButtonColor: "white",
+  DeviderWrapperLarge:
+    "relative flex left-0 w-full justify-center pointer-events-none -mt-6 z-10",
+  DeviderLarge:
+    "w-[calc(100%+60px)] 2xl:max-w-[calc(100%+60px)] xl:max-w-[calc(100%+60px)] lg:max-w-[calc(100%+60px)] 2xl:h-auto xl:h-auto lg:h-auto",
+  MarqueeBackground1: "",
+  MarqueeBackground2: "",
+  Marquee: "",
 };
 
 const content = {
@@ -136,7 +148,7 @@ const Services = () => {
           </Button>
         </div>
       </div>
-      <div id="service-cards" className="py-16">
+      <div id="service-cards" className="pt-16">
         <div className={servicesStyles.cardsContainer}>
           <div className={servicesStyles.cardRow}>
             <Card className={`bg-[#504CFF] ${servicesStyles.cardLarge}`}>
@@ -237,6 +249,23 @@ const Services = () => {
               </div>
             </Card>
           </div>
+        </div>
+      </div>
+      <div className="relative">
+        <div className={servicesStyles.DeviderWrapperLarge}>
+          <div className="absolute left-[50%] right-0 w-screen transform -translate-x-1/2 xl:mt-14 lg:mt-15 md:mt-11 sm:mt-8 xs:mt-6 mt-4 h-auto">
+            <Image src={MarqueeBackground1} className="w-full" alt=""></Image>
+            <Image
+              src={MarqueeBackground2}
+              className="absolute top-0 left-0 w-full"
+              alt=""
+            ></Image>
+          </div>
+          <Image
+            src={DeviderLarge}
+            className={servicesStyles.DeviderLarge}
+            alt="divider on large screen"
+          />
         </div>
       </div>
     </>

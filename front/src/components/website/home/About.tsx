@@ -27,7 +27,7 @@ const aboutStyles = {
 
 const About = () => {
   return (
-    <div className={aboutStyles.mainContainer}>
+    <>
       <div className={aboutStyles.headerWrapper}>
         <div className={aboutStyles.textContainer}>
           <div className={`title-color ${aboutStyles.title}`}>
@@ -64,7 +64,7 @@ const About = () => {
           alt="divider on small screen"
         />
       </div>
-    </div>
+    </>
   );
 };
 
