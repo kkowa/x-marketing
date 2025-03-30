@@ -26,9 +26,16 @@ const Portfolio = () => {
       <PortfolioCard
         cardDescription="Development Project"
         cardTitle="MStore"
-        cardContent="Mangcoding is a biggest company in Indonesia, who provides the"
+        cardContent={
+          <>
+            Mangcoding is a biggest company in <br /> Indonesia, who provides
+            the
+          </>
+        }
         imageSRC={Image1}
         imageAlt=""
+        bottomTitle="MStore"
+        bottomDescription="Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress"
       />
     </div>
   );
