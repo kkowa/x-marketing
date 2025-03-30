@@ -1,12 +1,17 @@
+import { ReactNode } from "react";
 import { Card, CardContent, CardDescription, CardTitle } from "./Card";
 import Image, { StaticImageData } from "next/image";
+import LinearBorder from "public/img/svg/portfolio/linear-border.svg";
+import Icon from "public/img/svg/portfolio-card-icon.svg";
 
 interface PortfolioCardProps {
   cardDescription: string;
   cardTitle: string;
-  cardContent: string;
+  cardContent: ReactNode;
   imageSRC: StaticImageData;
   imageAlt: string;
+  bottomTitle: string;
+  bottomDescription: string;
 }
 
 const PortfolioCard: React.FC<PortfolioCardProps> = ({
@@ -15,26 +20,51 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
   cardContent,
   imageSRC,
   imageAlt,
+  bottomTitle,
+  bottomDescription,
 }) => {
   return (
-    <div>
-      <div>
-        <Card
-          style={{
-            background: "portfolioCardColor",
-          }}
-        >
-          <div className="flex">
-            <div className="flex flex-col justify-between flex-grow w-1/2 px-8 py-10">
-              <CardDescription className="border-2">
-                {cardDescription}
-              </CardDescription>
-              <CardTitle className="text-4xl">{cardTitle}</CardTitle>
-              <CardContent>{cardContent}</CardContent>
+    <div className="border-b-2 border-b-[#635189] mt-6">
+      <Card
+        style={{
+          background:
+            "linear-gradient(45deg, #e6dbff 0%, #f6f6f6 44%, #d8d7ff 100%)",
+        }}
+        className="mb-6"
+      >
+        <div className="flex relative">
+          <div className="flex flex-col justify-between flex-grow w-1/2 px-8 py-10">
+            <div className="relative">
+              <div className="relative w-42 mb-6">
+                <Image src={LinearBorder} alt="" className="w-full" />
+                <CardDescription className="absolute inset-0 z-10 flex items-center justify-center text-[#0A0C14]">
+                  {cardDescription}
+                </CardDescription>
+              </div>
+              <CardTitle className="text-4xl text-[#0A0C14]">
+                {cardTitle}
+              </CardTitle>
             </div>
-            <Image src={imageSRC} alt={imageAlt} className="w-1/2 mt-8" />
+            <CardContent className="text-[#494C58]">{cardContent}</CardContent>
           </div>
-        </Card>
+
+          <div className="w-1/2 relative overflow-hidden">
+            <div className="relative top-5 left-0 -right-10 bottom-0">
+              <div className="absolute -top-2 right-5 z-20">
+                <Image src={Icon} alt="" />
+              </div>
+              <Image
+                src={imageSRC}
+                alt={imageAlt}
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </Card>
+      <div className="mb-6">
+        <h3 className="text-white text-4xl mb-6">{bottomTitle}</h3>
+        <p className="text-white text-base">{bottomDescription}</p>
       </div>
     </div>
   );
