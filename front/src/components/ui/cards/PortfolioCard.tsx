@@ -24,13 +24,13 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({
   bottomDescription,
 }) => {
   return (
-    <div className="border-b-2 border-b-[#635189] mt-6">
+    <div className="mt-6">
       <Card
         style={{
           background:
             "linear-gradient(45deg, #e6dbff 0%, #f6f6f6 44%, #d8d7ff 100%)",
         }}
-        className="mb-6"
+        className="mb-6 z-20"
       >
         <div className="flex relative">
           <div className="flex flex-col justify-between flex-grow w-1/2 pl-[24px] py-[34px]">
