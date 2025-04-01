@@ -8,7 +8,7 @@ const styles = {
   wrapper: "max-w-7xl mx-auto flex justify-between items-center py-4 px-6",
   logo: "flex items-center",
   logoText: "ml-4 text-lg text-white",
-  links: "hidden md:flex space-x-8",
+  links: "hidden md:flex space-x-8 ml-12",
   link: "text-white hover:text-blue-500 transition-colors",
 };
 
