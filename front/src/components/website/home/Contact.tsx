@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <div className="relative">
       <div
-        className="absolute -top-10 -bottom-10 left-0 right-0 bg-[#1A1A1A] bg-opacity-40 border-y-2 border-y-[#635189]"
+        className="absolute -top-10 -bottom-10 left-0 right-0 bg-[rgba(26,26,26,0.4)] border-y-2 border-y-[#635189]"
         style={{ width: "100vw", left: "50%", transform: "translateX(-50%)" }}
       ></div>
       <div className="relative">

@@ -8,15 +8,15 @@ import {
 
 const Footer = () => {
   return (
-    <div className=" bg-[#1A1A1A] bg-opacity-40 text-white z-50">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-[rgba(26,26,26,0.4)]  text-white z-50">
+      <div className="max-w-6xl mx-auto">
         <div className="flex justify-between py-[80px]">
           <div className="w-1/2">
             <div className="flex mb-[16px]">
               <CompanyLogoIdeogram />
               <div className="ml-4 text-lg text-white">X Marketing</div>
             </div>
-            <p className="title-color">
+            <p className="text-white">
               Companies that can help you in developing your <br /> company for
               the future
             </p>
