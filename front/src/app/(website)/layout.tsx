@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
-
 import React from "react";
 import { ReactNode } from "react";
 import Footer from "@/components/website/common/Footer";
 import Navbar from "@/components/website/common/Navbar";
-// import Hero from "@/components/website/home/Hero";
+import Hero from "@/components/website/home/Hero";
 
 export const metadata: Metadata = {
   title: "X Marketing",
@@ -16,6 +15,7 @@ interface ContainerProps {
   children: ReactNode;
   className?: string;
 }
+
 function Container(props: ContainerProps) {
   const { children, className = "" } = props;
   return (
@@ -26,6 +26,7 @@ function Container(props: ContainerProps) {
     </div>
   );
 }
+
 export default function WebsiteLayout({
   children,
 }: {
@@ -33,14 +34,14 @@ export default function WebsiteLayout({
 }) {
   return (
     <>
-      <header className="sticky top-0 bg-[#020103] z-50">
+      <header className="fixed top-0 left-0 right-0 bg-[#020103] z-50 w-full">
         <Navbar />
       </header>
-      <main>
-        {/* <Hero /> */}
-        <Container>{children}</Container>
+      <main className="pt-[60px]">
+        <Hero />
+        <Container className="relative z-40 mt-68">{children}</Container>
       </main>
-      <footer>
+      <footer className="relative z-40">
         <Footer />
       </footer>
     </>
