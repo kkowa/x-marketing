@@ -9,7 +9,7 @@ import Photo6 from "public/img/png/reviews/photo-6.png";
 
 const Testimonials = () => {
   return (
-    <div className="mt-12 container mx-auto">
+    <div className="mt-12 container mx-auto h-full">
       <Header
         title="Our Product"
         description={
