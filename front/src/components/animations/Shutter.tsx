@@ -16,7 +16,7 @@ const Shutter = () => {
 
       // Calculate rotation (0-180 degrees) based on scroll position
       // Complete rotation at 80% of the total height to ensure all shutters turn
-      const maxRotation = 210; // Higher than 180 to ensure last shutter reaches 180
+      const maxRotation = 210;
       const newRotation = Math.min(
         (scrollY / (vh * 1.6)) * maxRotation,
         maxRotation
@@ -75,7 +75,7 @@ const Shutter = () => {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.06) 100%)",
+                    "linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%)",
                   backfaceVisibility: "hidden",
                 }}
               />
