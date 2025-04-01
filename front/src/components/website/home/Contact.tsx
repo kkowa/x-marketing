@@ -28,7 +28,7 @@ const Contact = () => {
             variant="outline"
             radius="full"
             text="Know More"
-            className="2xl:w-full xl:w-full lg:w-full md:w-1/2 sm:w-1/2 w-1/2 2xl:h-12 xl:h-12 lg:h-12 md:h-12 sm:h-12 h-10 2xl:px-6 xl:px-6 lg:px-6 md:px-6 sm:px-6 px-4"
+            className="2xl:w-full xl:w-full lg:w-full md:w-1/2 sm:w-1/2 w-1/2 2xl:h-12 xl:h-12 lg:h-12 md:h-12 sm:h-12 h-10 2xl:px-6 xl:px-6 lg:px-6 md:px-6 sm:px-6 px-4 text-black"
           >
             <ArrowUpCircleIcon color="black" />
           </Button>
