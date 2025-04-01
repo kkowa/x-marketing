@@ -12,13 +12,17 @@ export default function Home() {
         <div className="relative z-20">
           <Services />
         </div>
-
         <div className="relative z-20">
           <Portfolio />
         </div>
+        <div className="relative z-20">
+          <Testimonials />
+        </div>
       </div>
-      <Testimonials />
-      <Contact />
+
+      <div className="my-130">
+        <Contact />
+      </div>
     </>
   );
 }
