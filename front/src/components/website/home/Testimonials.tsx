@@ -9,9 +9,9 @@ import Photo6 from "public/img/png/reviews/photo-6.png";
 
 const Testimonials = () => {
   return (
-    <div className="mt-12 container mx-auto h-full">
+    <div className=" container mx-auto h-full xl:-mt-80 lg:-mt-75 md:-mt-[200px] sm:-mt-[160px] xs:-mt-[130px] -mt-[112px] mb-20">
       <Header
-        title="Our Product"
+        title="What they say about us"
         description={
           <>
             help you to build website company that is modern, user friendly
