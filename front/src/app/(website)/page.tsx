@@ -18,10 +18,9 @@ export default function Home() {
         <div className="relative z-20">
           <Testimonials />
         </div>
-      </div>
-
-      <div className="my-130">
-        <Contact />
+        <div>
+          <Contact />
+        </div>
       </div>
     </>
   );
