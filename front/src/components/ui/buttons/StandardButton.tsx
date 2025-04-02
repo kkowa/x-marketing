@@ -23,10 +23,6 @@ const buttonVariants = cva(
         default: "h-9 py-2",
         sm: "h-8 text-xs",
         lg: "h-10",
-        icon: "h-9 w-9",
-        //custom
-        csm: "h-12 px-6 py-3",
-        clg: "h-12 w-60",
       },
       radius: {
         none: "rounded-none",
@@ -41,7 +37,7 @@ const buttonVariants = cva(
       size: "default",
       radius: "md",
     },
-  }
+  },
 );
 
 export interface ButtonProps
@@ -63,7 +59,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     const Comp = asChild ? Slot : "button";
     return (
@@ -76,7 +72,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {children}
       </Comp>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";
