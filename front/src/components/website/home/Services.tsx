@@ -1,147 +1,101 @@
-import { Button } from "@/components/ui/buttons/StandardButton";
-import { ArrowUpCircleIcon } from "public/icons/Icons";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/cards/Card";
+/**
+ * ┌─────────────────────────────────────────────────────┐
+ * │                                                     │
+ * │ Services Component                                  │
+ * │                                                     │
+ * │ This component displays the services section of     │
+ * │ the website featuring a header, service cards,      │
+ * │ and a logo marquee. The component is optimized      │
+ * │ for performance with proper image loading and       │
+ * │ responsive design across various screen sizes.      │
+ * │                                                     │
+ * │ It uses smaller, reusable components including      │
+ * │ ServiceCard and MarqueeSection to improve code      │
+ * │ maintainability. Service data is stored             │
+ * │ separately for better organization.                 │
+ * │                                                     │
+ * └─────────────────────────────────────────────────────┘
+ */
 
+import { useMemo } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
+// Components
+import DeviderLarge from "@/components/website/common/deviders/DeviderLarge";
+import Header from "@/components/website/common/Header";
+import ServiceCard from "@/components/ui/cards/ServiceCard";
+
+// Dynamically import Marquee for better performance
+const Marquee = dynamic(() => import("@/components/animations/Marquee"), {
+  ssr: true,
+  loading: () => <div className="h-20"></div>,
+});
+
+// Icons
+import { ArrowUpCircleIcon } from "public/icons/Icons";
+
+// Service Assets
 import ServiceIcon1 from "public/img/svg/services/service-icon-1.svg";
 import ServiceIcon2 from "public/img/svg/services/service-icon-2.svg";
 import ServiceIcon3 from "public/img/svg/services/service-icon-3.svg";
 import ServiceIcon4 from "public/img/svg/services/service-icon-4.svg";
-
 import ServiceImg1 from "public/img/svg/services/service-img-1.svg";
 import ServiceImg2 from "public/img/svg/services/service-img-2.svg";
 import ServiceImg3 from "public/img/svg/services/service-img-3.svg";
 import ServiceImg4 from "public/img/svg/services/service-img-4.svg";
 
-import DeviderLarge from "public/img/svg/services-devider.svg";
-
+// Marquee Assets
 import MarqueeBackground1 from "public/img/svg/marquee-background-1.svg";
 import MarqueeBackground2 from "public/img/svg/marquee-background-2.svg";
 import Logo1 from "public/img/svg/logo1.svg";
 import Logo2 from "public/img/svg/logo2.svg";
 import Logo3 from "public/img/svg/logo3.svg";
+import SVGDevider1 from "public/img/svg/services-devider.svg";
 
-import { ArrowUpIcon } from "public/icons/Icons";
-import Marquee from "@/components/animations/Marquee";
+// Data
+import serviceContent from "@/data/services-data";
 
-import Header from "@/components/website/common/Header";
-
-const servicesStyles = {
-  headerWrapper:
-    "relative flex text-black  flex-col md:flex-col sm:flex-col 2xl:flex-row xl:flex-row lg:flex-row 2xl:justify-between xl:justify-between lg:justify-between md:justify-center sm:justify-center justify-center 2xl:items-end xl:items-end lg:items-end md:items-center sm:items-center items-center w-full 2xl:-mt-95 xl:-mt-95 lg:-mt-75 md:-mt-[200px] sm:-mt-[160px] xs:-mt-[130px] -mt-[112px]",
-  textContainer:
-    "w-full 2xl:text-left xl:text-left lg:text-left md:text-center sm:text-center xs:text-center text-center md:pb-[min(12%,70px)] sm:pb-[min(12%,50px)] xs:pb-[min(12%,30px)] pb-[min(12%,50px)] sm:pb-[8%] 2xl:pb-0 xl:pb-0 lg:pb-0",
-  title:
-    "relative 2xl:text-6xl xl:text-6xl lg:text-5xl md:text-5xl sm:text-4xl xs:text-xl leading-[1.2] pb-0 whitespace-nowrap",
-  description:
-    "relative 2xl:text-base xl:text-base lg:text-base md:text-base sm:text-sm text-xs text-white leading-[1.5] mt-4 z-31 whitespace-nowrap overflow-hidden text-ellipsis",
-  buttonContainer:
-    "2xl:flex xl:flex lg:flex md:flex sm:flex flex 2xl:self-end xl:self-end lg:self-end 2xl:justify-end xl:justify-end lg:justify-end 2xl:w-1/5 xl:w-1/5 lg:w-1/5 md:w-1/2 sm:w-1/2 w-1/2 md:justify-center sm:justify-center justify-center z-30",
-  cardsContainer: "w-ful",
-  cardRow: "flex flex-col lg:flex-row w-full mb-6 gap-6",
-  cardIcon: "w-[60px] h-[60px] mb-8",
-  cardLarge:
-    "relative overflow-hidden  w-full 2xl:w-[57.5%] xl:w-[57.5%] lg:w-[57.5%] md:w-[100%] sm:w-[100%] xs:w-[100%] w-[100%] size-87.5 shadow-md hover:shadow-lg transition-shadow duration-300",
-  cardLargeDescriptionContainer:
-    "2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-1/2 sm:w-1/2 xs:w-full w-full h-full px-8 py-10 flex flex-col",
-  cardSmall:
-    "relative overflow-hidden w-full lg:w-[42.5%] md:w-[100%] sm:w-[100%] xs:w-[100%] w-[100%] size-87.5 shadow-md hover:shadow-lg transition-shadow duration-300",
-  cardSmallDescriptionContainer:
-    "2xl:w-2/3 xl:w-2/3 lg:w-2/3 md:w-1/2 sm:w-1/2 xs:w-full w-full h-full px-8 py-10 flex flex-col",
-  cardTitle: "text-4xl font-medium text-white",
-  CardDescriptionContainer: "flex flex-col justify-between flex-grow",
-  cardDescriptionText: "text-white",
-  cardImage: "w-full h-auto object-cover",
-  cardButton: "text-white underline",
-  cardButtonColor: "white",
-  DeviderWrapperLarge:
-    "relative flex left-0 w-full justify-center pointer-events-none -mt-6 z-10",
-  DeviderLarge:
-    "w-[calc(100%+60px)] 2xl:max-w-[calc(100%+60px)] xl:max-w-[calc(100%+60px)] lg:max-w-[calc(100%+60px)] 2xl:h-auto xl:h-auto lg:h-auto",
-  MarqueeBackground1: "",
-  MarqueeBackground2: "",
-  Marquee: "",
-};
-
-const content = {
-  title1: "Website Dev",
-  icon1Alt: "service image 1",
-  image1Alt: "service image 1",
-  title2: "UI/UX Design",
-  icon2Alt: "service image 2",
-  image2Alt: "service image 2",
-  title3: "Branding",
-  icon3Alt: "service image 3",
-  image3Alt: "service image 3",
-  title4: "Shopify",
-  icon4Alt: "service image 4",
-  image4Alt: "service image 4",
-  description:
-    "help you to build website company that is modern, user friendly, good CEO, and Clean design",
-  button: "Start with us",
-};
-
-const ServicesCardDescription = (
-  cardSizeSpecificDescriptionContainer: string,
-  serviceIconSrc: string,
-  cardIcon: string,
-  iconAlt: string,
-  cardDescriptionContainer: string,
-  cardTitleContainer: string,
-  title: string,
-  cardDescriptionTextContainer: string,
-  description: string,
-  buttonText: string,
-  cardButtonStyle: string,
-  cardButtonColor: string,
-) => {
-  return (
-    <div className={cardSizeSpecificDescriptionContainer}>
-      <Image src={serviceIconSrc} className={cardIcon} alt={iconAlt} />
-      <div className={cardDescriptionContainer}>
-        <CardHeader>
-          <CardTitle className={cardTitleContainer}>{title}</CardTitle>
-        </CardHeader>
-        <CardContent className={cardDescriptionTextContainer}>
-          <p>{description}</p>
-        </CardContent>
-        <CardFooter>
-          <Button
-            variant="link"
-            size="sm"
-            text={buttonText}
-            className={cardButtonStyle}
-          >
-            <ArrowUpIcon color={cardButtonColor} />
-          </Button>
-        </CardFooter>
-      </div>
-    </div>
-  );
-};
+const serviceIcons = [ServiceIcon1, ServiceIcon2, ServiceIcon3, ServiceIcon4];
+const serviceImages = [ServiceImg1, ServiceImg2, ServiceImg3, ServiceImg4];
+const logoImages = [Logo1, Logo2, Logo3];
 
 const Services = () => {
+  const { services, buttonText } = serviceContent;
+
+  // Memoize service cards to prevent unnecessary re-renders
+  const serviceCards = useMemo(() => {
+    return services.map((service, index) => (
+      <ServiceCard
+        key={service.title || index}
+        bgColor={service.bgColor}
+        isLarge={service.isLarge}
+        icon={serviceIcons[index]}
+        iconAlt={`${service.title} icon`}
+        title={service.title}
+        description={service.description}
+        buttonText={buttonText}
+        image={serviceImages[index]}
+        imageAlt={`${service.title} illustration`}
+        imagePosition={service.imagePosition}
+      />
+    ));
+  }, [services, buttonText]);
+
   return (
     <>
       <div className="mt-20 sm:-mt-56 md:-mt-46 lg:-mt-86 xl:-mt-94">
         <Header
           title={
             <>
-              Let&apos;s work together{" "}
-              <br className="hidden lg:block xl:block 2xl:block" /> with our us
+              Let&apos;s work together <br className="hidden lg:block" /> with
+              our us
             </>
           }
           description={
             <>
               help you to build website company that is modern, user friendly,
-              <br className="hidden lg:block xl:block 2xl:block" />
+              <br className="hidden lg:block" />
               good CEO, and Clean design
             </>
           }
@@ -154,120 +108,43 @@ const Services = () => {
       </div>
 
       <div id="service-cards" className="pt-16">
-        <div className={servicesStyles.cardsContainer}>
-          <div className={servicesStyles.cardRow}>
-            <Card className={`bg-[#504CFF] ${servicesStyles.cardLarge}`}>
-              {ServicesCardDescription(
-                servicesStyles.cardLargeDescriptionContainer,
-                ServiceIcon1,
-                servicesStyles.cardIcon,
-                content.icon1Alt,
-                servicesStyles.CardDescriptionContainer,
-                servicesStyles.cardTitle,
-                content.title1,
-                servicesStyles.cardDescriptionText,
-                content.description,
-                content.button,
-                servicesStyles.cardButton,
-                servicesStyles.cardButtonColor,
-              )}
-              <div className="xs:-right-56 xs:w-[98%] absolute top-10 hidden overflow-hidden sm:-right-36 sm:block sm:w-[72%] md:w-[56%] lg:w-[71%] xl:w-[71%] 2xl:w-[71%]">
-                <Image
-                  src={ServiceImg1}
-                  alt={content.image1Alt}
-                  className={servicesStyles.cardImage}
-                />
-              </div>
-            </Card>
-
-            <Card className={`bg-[#151515] ${servicesStyles.cardSmall}`}>
-              {ServicesCardDescription(
-                servicesStyles.cardSmallDescriptionContainer,
-                ServiceIcon2,
-                servicesStyles.cardIcon,
-                content.icon2Alt,
-                servicesStyles.CardDescriptionContainer,
-                servicesStyles.cardTitle,
-                content.title2,
-                servicesStyles.cardDescriptionText,
-                content.description,
-                content.button,
-                servicesStyles.cardButton,
-                servicesStyles.cardButtonColor,
-              )}
-              <div className="xs:-right-12 xs:w-[98%] absolute top-10 hidden overflow-hidden sm:-right-12 sm:block sm:w-[57%] md:w-[46%] lg:w-[46%] xl:w-[46%] 2xl:w-[46%]">
-                <Image
-                  src={ServiceImg2}
-                  className={servicesStyles.cardImage}
-                  alt={content.image2Alt}
-                />
-              </div>
-            </Card>
+        <div className="w-full">
+          {/* First row */}
+          <div className="mb-6 flex w-full flex-col gap-6 lg:flex-row">
+            {serviceCards.slice(0, 2)}
           </div>
 
-          <div className={servicesStyles.cardRow}>
-            <Card className={`flex bg-[#151515] ${servicesStyles.cardSmall}`}>
-              {ServicesCardDescription(
-                servicesStyles.cardSmallDescriptionContainer,
-                ServiceIcon3,
-                servicesStyles.cardIcon,
-                content.icon3Alt,
-                servicesStyles.CardDescriptionContainer,
-                servicesStyles.cardTitle,
-                content.title3,
-                servicesStyles.cardDescriptionText,
-                content.description,
-                content.button,
-                servicesStyles.cardButton,
-                servicesStyles.cardButtonColor,
-              )}
-              <div className="xs:-right-36 xs:w-[98%] absolute top-10 hidden overflow-hidden sm:block sm:w-[94%] md:-right-40 md:w-[80%] lg:-right-36 lg:w-[94%] xl:w-[94%] 2xl:w-[94%]">
-                <Image
-                  src={ServiceImg3}
-                  className={servicesStyles.cardImage}
-                  alt={content.image3Alt}
-                />
-              </div>
-            </Card>
-
-            <Card className={`flex bg-[#854CFF] ${servicesStyles.cardLarge}`}>
-              {ServicesCardDescription(
-                servicesStyles.cardLargeDescriptionContainer,
-                ServiceIcon4,
-                servicesStyles.cardIcon,
-                content.icon4Alt,
-                servicesStyles.CardDescriptionContainer,
-                servicesStyles.cardTitle,
-                content.title4,
-                servicesStyles.cardDescriptionText,
-                content.description,
-                content.button,
-                servicesStyles.cardButton,
-                servicesStyles.cardButtonColor,
-              )}
-              <div className="xs:-right-56 xs:w-[60%] absolute top-10 hidden overflow-hidden sm:-right-18 sm:block sm:w-[60%] md:w-[52%] lg:w-[58%] xl:w-[58%] 2xl:w-[58%]">
-                <Image
-                  src={ServiceImg4}
-                  className={servicesStyles.cardImage}
-                  alt={content.image4Alt}
-                />
-              </div>
-            </Card>
+          {/* Second row */}
+          <div className="mb-6 flex w-full flex-col gap-6 lg:flex-row">
+            {serviceCards.slice(2, 4)}
           </div>
         </div>
       </div>
+
+      {/* Divider and Marquee Section */}
       <div className="relative">
-        <div className={servicesStyles.DeviderWrapperLarge}>
-          <div className="xs:mt-6 absolute right-0 left-[50%] mt-4 h-auto w-screen -translate-x-1/2 transform sm:mt-8 md:mt-11 lg:mt-15 xl:mt-14">
-            <Image src={MarqueeBackground1} className="w-full" alt=""></Image>
+        <div className="pointer-events-none relative left-0 -mt-6 flex w-full justify-center">
+          <div className="xs:mt-6 absolute right-0 left-[50%] z-50 mt-4 h-auto w-screen -translate-x-1/2 transform sm:mt-8 md:mt-11 lg:mt-15 xl:mt-14">
+            <Image
+              src={MarqueeBackground1}
+              className="w-full"
+              alt="Marquee background"
+              width={1920}
+              height={300}
+              sizes="100vw"
+            />
             <Image
               src={MarqueeBackground2}
               className="absolute top-0 left-0 w-full"
-              alt=""
-            ></Image>
-            <div className="-mt-40 rotate-2">
+              alt="Marquee overlay background"
+              width={1920}
+              height={300}
+              sizes="100vw"
+            />
+
+            <div className="relative -mt-40 rotate-2">
               <Marquee
-                images={[Logo1, Logo2, Logo3]}
+                images={logoImages}
                 showText={false}
                 imageSize={60}
                 backgroundColor="transparent"
@@ -278,13 +155,15 @@ const Services = () => {
               />
             </div>
           </div>
-          <Image
-            src={DeviderLarge}
-            className={servicesStyles.DeviderLarge}
-            alt="divider on large screen"
-          />
+
+          <div className="relative z-10">
+            <DeviderLarge
+              src={SVGDevider1}
+              alt="divider on large screen"
+              className="w-[calc(100%+60px)] lg:h-auto lg:max-w-[calc(100%+60px)] xl:h-auto xl:max-w-[calc(100%+60px)] 2xl:h-auto 2xl:max-w-[calc(100%+60px)]"
+            />
+          </div>
         </div>
-        <div></div>
       </div>
     </>
   );
