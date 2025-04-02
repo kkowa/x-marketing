@@ -1,12 +1,36 @@
-//compoments
-import Header from "@/components/website/common/Header";
-import DeviderLarge from "@/components/website/common/deviders/DeviderLarge";
-import DeviderSmall from "@/components/website/common/deviders/DeveiderSmall";
+/**
+ * ┌─────────────────────────────────────────────────────┐
+ * │                                                     │
+ * │ About Section Component                             │
+ * │                                                     │
+ * │ This component renders the About section of the     │
+ * │ website. It displays a header with a title,         │
+ * │ description, and a "Know More" button with an       │
+ * │ arrow icon. The section includes decorative         │
+ * │ dividers that are responsive to different screen    │
+ * │ sizes.                                              │
+ * │                                                     │
+ * │ The component imports SVG dividers and displays     │
+ * │ them conditionally based on viewport size. The      │
+ * │ large divider appears on desktop screens while      │
+ * │ the small divider is shown on mobile devices.       │
+ * │                                                     │
+ * │ The negative margin classes on the dividers         │
+ * │ create an overlapping visual effect that varies     │
+ * │ across different breakpoints.                       │
+ * │                                                     │
+ * └─────────────────────────────────────────────────────┘
+ */
 
 //assets
 import { ArrowUpIcon } from "public/icons/Icons";
 import SVGDevider1 from "public/img/svg/about-devider-large.svg";
 import SVGDevider2 from "public/img/svg/about-devider-small.svg";
+
+//compoments
+import Header from "@/components/website/common/Header";
+import DeviderLarge from "@/components/website/common/deviders/DeviderLarge";
+import DeviderSmall from "@/components/website/common/deviders/DeveiderSmall";
 
 const About = () => {
   return (
