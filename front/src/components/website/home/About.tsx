@@ -22,43 +22,51 @@
  * └─────────────────────────────────────────────────────┘
  */
 
-//assets
+// Assets
 import { ArrowUpIcon } from "public/icons/Icons";
 import SVGDevider1 from "public/img/svg/about-devider-large.svg";
 import SVGDevider2 from "public/img/svg/about-devider-small.svg";
 
-//compoments
+// Components
 import Header from "@/components/website/common/Header";
 import DeviderLarge from "@/components/website/common/deviders/DeviderLarge";
 import DeviderSmall from "@/components/website/common/deviders/DeveiderSmall";
 
+// Data
+import aboutContent from "@/data/about-data";
+
 const About = () => {
+  const { header } = aboutContent;
+
   return (
     <>
       <Header
         title={
           <>
-            Companies that can help you in <br />
-            developing your company for the future
+            {header.title.split("developing")[0]} <br />
+            developing{header.title.split("developing")[1]}
           </>
         }
         description={
           <>
-            Work in the IT field includes Web Design, UI/UX Design, Branding
-            <br className="hidden md:block" /> and Shopify Development
+            {header.description.split("and")[0]}
+            <br className="hidden md:block" /> and
+            {header.description.split("and")[1]}
           </>
         }
         buttonContainer={true}
-        buttonText="Know More"
+        buttonText={header.buttonText}
         buttonIcon={<ArrowUpIcon />}
         buttonPosition="top"
         buttonSize="large"
       />
+
       <DeviderLarge
         src={SVGDevider1}
         alt={"divider on large screen"}
         className="lg:-mt-38 xl:-mt-43"
       />
+
       <DeviderSmall
         src={SVGDevider2}
         alt={"divider on large screen"}
