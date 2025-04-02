@@ -23,32 +23,37 @@
  * └─────────────────────────────────────────────────────┘
  */
 
-//assets
+// Assets
 import { ArrowUpIcon } from "public/icons/Icons";
 
-//component
+// Components
 import Header from "@/components/website/common/Header";
 
+// Data
+import contactContent from "@/data/contact-data";
+
 const Contact = () => {
+  const { header } = contactContent;
+
   return (
     <div className="relative">
       <div
         className="absolute -top-10 right-0 -bottom-10 left-0 border-y-2 border-y-[#635189] bg-[rgba(26,26,26,0.4)]"
         style={{ width: "100vw", left: "50%", transform: "translateX(-50%)" }}
       ></div>
+
       <div className="relative">
         <Header
-          title="Let's work with Us"
+          title={header.title}
           description={
             <>
-              Mangcoding is a biggest company in Indonesia, who provides the
-              services in
+              {header.description.split("services in")[0]}services in
               <br />
-              Development Website, Shopify and Wordpress help you to
+              {header.description.split("services in")[1]}
             </>
           }
           buttonContainer={true}
-          buttonText="Know More"
+          buttonText={header.buttonText}
           buttonIcon={<ArrowUpIcon color="black" />}
           buttonPosition="middle"
           buttonSize="large"
