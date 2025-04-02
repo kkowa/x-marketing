@@ -1,64 +1,60 @@
+/**
+ * ┌─────────────────────────────────────────────────────┐
+ * │                                                     │
+ * │ Testimonials Component                              │
+ * │                                                     │
+ * │ This component displays customer testimonials in    │
+ * │ a responsive grid layout. It includes a header      │
+ * │ section and multiple review cards from clients.     │
+ * │                                                     │
+ * │ The component uses memoization to optimize          │
+ * │ rendering performance and organizes testimonial     │
+ * │ data separately for better maintainability.         │
+ * │                                                     │
+ * └─────────────────────────────────────────────────────┘
+ */
+
+import { useMemo } from "react";
+
+// Components
 import { ReviewCard } from "@/components/ui/cards/ReviewCard";
 import Header from "@/components/website/common/Header";
-import Photo1 from "public/img/png/reviews/photo-1.png";
-import Photo2 from "public/img/png/reviews/photo-2.png";
-import Photo3 from "public/img/png/reviews/photo-3.png";
-import Photo4 from "public/img/png/reviews/photo-4.png";
-import Photo5 from "public/img/png/reviews/photo-5.png";
-import Photo6 from "public/img/png/reviews/photo-6.png";
+
+// Data
+import testimonialContent from "@/data/testimonial-data";
 
 const Testimonials = () => {
+  const { header, reviews } = testimonialContent;
+
+  // Memoize review cards to prevent unnecessary re-renders
+  const reviewCards = useMemo(() => {
+    return reviews.map((review) => (
+      <ReviewCard
+        key={review.id}
+        reviewPicture={review.image}
+        reviewName={review.name}
+        reviewInfo={review.position}
+        review={review.content}
+      />
+    ));
+  }, [reviews]);
+
   return (
     <div className="xs:-mt-[130px] container mx-auto -mt-[112px] mb-20 h-full sm:-mt-[160px] md:-mt-[200px] lg:-mt-75 xl:-mt-80">
       <Header
-        title="What they say about us"
+        title={header.title}
         description={
           <>
-            help you to build website company that is modern, user friendly
+            {header.description.split("good")[0]}
             <br />
-            good CEO, and Clean design
+            good {header.description.split("good")[1]}
           </>
         }
         buttonContainer={false}
       />
 
       <div className="my-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-        <ReviewCard
-          reviewPicture={Photo1}
-          reviewName="Nugraha"
-          reviewInfo="Founder of Mangcoding"
-          review="Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress"
-        />
-        <ReviewCard
-          reviewPicture={Photo2}
-          reviewName="Alex jounky"
-          reviewInfo="Founder of Robs"
-          review="Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress"
-        />
-        <ReviewCard
-          reviewPicture={Photo3}
-          reviewName="Chelsia alexy"
-          reviewInfo="Founder of Frank"
-          review="Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress"
-        />
-        <ReviewCard
-          reviewPicture={Photo4}
-          reviewName="Samsul Afroy"
-          reviewInfo="Full Stack Development"
-          review="Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress"
-        />
-        <ReviewCard
-          reviewPicture={Photo5}
-          reviewName="Purwa Adi Twingkiwingki"
-          reviewInfo="UI/UX Designer"
-          review="Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress"
-        />
-        <ReviewCard
-          reviewPicture={Photo6}
-          reviewName="Rizwan Gusnajmi"
-          reviewInfo="Web Developer"
-          review="Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress"
-        />
+        {reviewCards}
       </div>
     </div>
   );
