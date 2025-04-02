@@ -1,110 +1,93 @@
-import Image from "next/image";
+/**
+ * ┌─────────────────────────────────────────────────────┐
+ * │                                                     │
+ * │ Portfolio Component                                 │
+ * │                                                     │
+ * │ This component displays a portfolio section with    │
+ * │ a header, grid of portfolio cards, and a divider.   │
+ * │ The section showcases various projects with images  │
+ * │ and descriptions. It uses responsive design for     │
+ * │ optimal display across different screen sizes.      │
+ * │                                                     │
+ * │ Performance is optimized with proper image loading  │
+ * │ strategies and memoized card rendering.             │
+ * │                                                     │
+ * └─────────────────────────────────────────────────────┘
+ */
 
-//assets
-import Image1 from "public/img/png/portfolio/img-1.png";
-import Image2 from "public/img/png/portfolio/img-2.png";
-import Image3 from "public/img/png/portfolio/img-3.png";
-import Image4 from "public/img/png/portfolio/img-4.png";
+import { useMemo } from "react";
+
+// Assets
 import Devider from "public/img/svg/portfolio-devider.svg";
-
-//compoments
-import Header from "@/components/website/common/Header";
-import PortfolioCard from "@/components/ui/cards/PortfolioCard";
-
 import { ArrowUpCircleIcon } from "public/icons/Icons";
 
+// Components
+import Header from "@/components/website/common/Header";
+import PortfolioCard from "@/components/ui/cards/PortfolioCard";
+import DeviderLarge from "@/components/website/common/deviders/DeviderLarge";
+
+// Data
+import portfolioContent from "@/data/portfolio-data";
+
 const Portfolio = () => {
+  const { header, portfolioItems } = portfolioContent;
+
+  const portfolioCards = useMemo(() => {
+    return portfolioItems.map((item) => (
+      <div
+        key={item.id}
+        className={
+          item.hasBorder ? "relative border-b-2 border-b-[#635189]" : ""
+        }
+      >
+        <PortfolioCard
+          cardDescription={item.description}
+          cardTitle={item.title}
+          cardContent={<>{item.content}</>}
+          imageSRC={item.image}
+          imageAlt={`${item.title} project image`}
+          bottomTitle={item.bottomTitle}
+          bottomDescription={item.bottomDescription}
+        />
+      </div>
+    ));
+  }, [portfolioItems]);
+
   return (
     <div className="xs:-mt-[130px] -mt-[112px] sm:-mt-[160px] md:-mt-[200px] lg:-mt-75 xl:-mt-30">
       <Header
-        title="Our Product"
+        title={header.title}
         description={
           <>
-            help you to build website company that is modern, user friendly
+            {header.description.split("good")[0]}
             <br />
-            good CEO, and Clean design
+            good {header.description.split("good")[1]}
           </>
         }
         buttonContainer={true}
-        buttonText="All Portfollio"
+        buttonText={header.buttonText}
         buttonIcon={<ArrowUpCircleIcon color="black" />}
         buttonPosition="bottom"
         buttonSize="small"
       />
 
       <div className="relative z-20">
+        {/* First row */}
         <div className="grid grid-cols-2 gap-6">
-          <div className="relative border-b-2 border-b-[#635189]">
-            <PortfolioCard
-              cardDescription="Development Project"
-              cardTitle="MStore"
-              cardContent={
-                <>
-                  Mangcoding is a biggest company in <br /> Indonesia, who
-                  provides the
-                </>
-              }
-              imageSRC={Image1}
-              imageAlt=""
-              bottomTitle="MStore"
-              bottomDescription="Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress"
-            />
-          </div>
-          <div className="relative border-b-2 border-b-[#635189]">
-            <PortfolioCard
-              cardDescription="Development Project"
-              cardTitle="Beauty"
-              cardContent={
-                <>
-                  Mangcoding is a biggest company in <br /> Indonesia, who
-                  provides the
-                </>
-              }
-              imageSRC={Image2}
-              imageAlt=""
-              bottomTitle="Beauty"
-              bottomDescription="Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress"
-            />
-          </div>
+          {portfolioCards.slice(0, 2)}
         </div>
+        {/* Second row */}
         <div className="grid grid-cols-2 gap-6">
-          <PortfolioCard
-            cardDescription="Development Project"
-            cardTitle="Jual"
-            cardContent={
-              <>
-                Mangcoding is a biggest company in <br /> Indonesia, who
-                provides the
-              </>
-            }
-            imageSRC={Image3}
-            imageAlt=""
-            bottomTitle="Mangcoding"
-            bottomDescription="Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress"
-          />
-          <PortfolioCard
-            cardDescription="Development Project"
-            cardTitle="MangStore"
-            cardContent={
-              <>
-                Mangcoding is a biggest company in <br /> Indonesia, who
-                provides the
-              </>
-            }
-            imageSRC={Image4}
-            imageAlt=""
-            bottomTitle="MangStore"
-            bottomDescription="Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress"
-          />
+          {portfolioCards.slice(2, 4)}
         </div>
       </div>
 
-      {/* Keep divider with its existing z-index but position it absolutely */}
-      <div className="pointer-events-none relative -mt-65 flex w-full justify-center sm:flex md:flex">
-        <Image
+      {/* Divider */}
+      <div className="-mt-58">
+        <DeviderLarge
           src={Devider}
-          alt=""
-          className="z-10 w-[calc(100%+100px)] lg:h-auto lg:max-w-[calc(100%+60px)] xl:h-auto xl:max-w-[calc(100%+60px)] 2xl:h-auto 2xl:max-w-[calc(100%+100px)]"
+          alt="divider on large screen"
+          className="w-[calc(100%+60px)] lg:h-auto lg:max-w-[calc(100%+60px)] xl:h-auto xl:max-w-[calc(100%+60px)] 2xl:h-auto 2xl:max-w-[calc(100%+60px)]"
         />
       </div>
     </div>
