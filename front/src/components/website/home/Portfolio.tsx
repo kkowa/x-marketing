@@ -1,12 +1,15 @@
 import Image from "next/image";
-import PortfolioCard from "@/components/ui/cards/PortfolioCard";
-import Header from "@/components/website/common/Header";
 
+//assets
 import Image1 from "public/img/png/portfolio/img-1.png";
 import Image2 from "public/img/png/portfolio/img-2.png";
 import Image3 from "public/img/png/portfolio/img-3.png";
 import Image4 from "public/img/png/portfolio/img-4.png";
 import Devider from "public/img/svg/portfolio-devider.svg";
+
+//compoments
+import Header from "@/components/website/common/Header";
+import PortfolioCard from "@/components/ui/cards/PortfolioCard";
 
 import { ArrowUpCircleIcon } from "public/icons/Icons";
 
@@ -25,6 +28,8 @@ const Portfolio = () => {
         buttonContainer={true}
         buttonText="All Portfollio"
         buttonIcon={<ArrowUpCircleIcon color="black" />}
+        buttonPosition="bottom"
+        buttonSize="small"
       />
 
       <div className="relative z-20">
