@@ -1,32 +1,33 @@
 /**
  * ┌─────────────────────────────────────────────────────┐
  * │                                                     │
- * │  DeviderLarge Component                             │
+ * │ DeviderLarge Component                              │
  * │                                                     │
- * │  A component that renders a divider image for       │
- * │  2xl-lg sizes. It accepts an imported image as a    │
- * │  prop and displays it with responsive sizing while  │
- * │  maintaining the original image's aspect ratio.     │
+ * │ A component that renders a divider image for        │
+ * │ 2xl-lg sizes. It accepts an imported image as a     │
+ * │ prop and displays it with responsive sizing while   │
+ * │ maintaining the original image's aspect ratio.      │
  * │                                                     │
  * └─────────────────────────────────────────────────────┘
  */
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 
 interface DeviderLargeProps {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
-  className?: string; //probably used for positioning
+  className?: string;
 }
 
 const DeviderLarge = ({ src, alt, className = "" }: DeviderLargeProps) => {
   return (
     <div
-      className={`xs:hidden pointer-events-none relative hidden w-full justify-center sm:hidden md:hidden lg:flex xl:flex 2xl:flex ${className}`}
+      className={`pointer-events-none relative hidden w-full justify-center lg:flex ${className}`}
     >
       <Image
         src={src}
         alt={alt}
-        className="z-10 w-[calc(100%+80px)] lg:h-auto lg:max-w-[calc(100%+80px)] xl:h-auto xl:max-w-[calc(100%+80px)] 2xl:h-auto 2xl:max-w-[calc(100%+80px)]"
+        className="z-10 h-auto w-[calc(100%+80px)] max-w-[calc(100%+80px)]"
       />
     </div>
   );

@@ -1,32 +1,33 @@
 /**
  * ┌─────────────────────────────────────────────────────┐
  * │                                                     │
- * │  DeviderSmall Component                             │
+ * │ DeviderSmall Component                              │
  * │                                                     │
- * │  A component that renders a divider image for       │
- * │  md-xs sizes. It accepts an imported image as a     │
- * │  prop and displays it with responsive sizing while  │
- * │  maintaining the original image's aspect ratio.     │
+ * │ A component that renders a divider image for        │
+ * │ md-xs sizes. It accepts an imported image as a      │
+ * │ prop and displays it with responsive sizing while   │
+ * │ maintaining the original image's aspect ratio.      │
  * │                                                     │
  * └─────────────────────────────────────────────────────┘
  */
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 
-interface DeviderLargeProps {
-  src: string;
+interface DeviderSmallProps {
+  src: string | StaticImageData;
   alt: string;
-  className?: string; //probably used for positioning
+  className?: string;
 }
 
-const DeviderSmall = ({ src, alt, className = "" }: DeviderLargeProps) => {
+const DeviderSmall = ({ src, alt, className = "" }: DeviderSmallProps) => {
   return (
     <div
-      className={`xs:-mt-6 2xl: pointer-events-none relative z-10 -mt-6 hidden w-full justify-center sm:-mt-6 sm:flex md:-mt-8 md:flex lg:hidden xl:hidden ${className}`}
+      className={`xs:-mt-6 pointer-events-none relative z-10 hidden w-full justify-center sm:-mt-6 sm:flex md:-mt-8 md:flex lg:hidden ${className}`}
     >
       <Image
         src={src}
         alt={alt}
-        className="h-auto w-[calc(100%+80px)] max-w-[calc(100%+80px)] sm:h-auto sm:max-w-[calc(100%+80px)] md:h-auto md:max-w-[calc(100%+80px)]"
+        className="h-auto w-[calc(100%+80px)] max-w-[calc(100%+80px)]"
       />
     </div>
   );
