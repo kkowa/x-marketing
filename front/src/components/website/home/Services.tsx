@@ -21,20 +21,6 @@ import { useMemo } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 
-// Components
-import DeviderLarge from "@/components/website/common/deviders/DeviderLarge";
-import Header from "@/components/website/common/Header";
-import ServiceCard from "@/components/ui/cards/ServiceCard";
-
-// Dynamically import Marquee for better performance
-const Marquee = dynamic(() => import("@/components/animations/Marquee"), {
-  ssr: true,
-  loading: () => <div className="h-20"></div>,
-});
-
-// Icons
-import { ArrowUpCircleIcon } from "public/icons/Icons";
-
 // Service Assets
 import ServiceIcon1 from "public/img/svg/services/service-icon-1.svg";
 import ServiceIcon2 from "public/img/svg/services/service-icon-2.svg";
@@ -53,6 +39,19 @@ import Logo2 from "public/img/svg/logo2.svg";
 import Logo3 from "public/img/svg/logo3.svg";
 import SVGDevider1 from "public/img/svg/services-devider.svg";
 
+// Icons
+import { ArrowUpCircleIcon } from "public/icons/Icons";
+
+// Components
+import DeviderLarge from "@/components/website/common/deviders/DeviderLarge";
+import Header from "@/components/website/common/Header";
+import ServiceCard from "@/components/ui/cards/ServiceCard";
+
+const Marquee = dynamic(() => import("@/components/animations/Marquee"), {
+  ssr: true,
+  loading: () => <div className="h-20"></div>,
+});
+
 // Data
 import serviceContent from "@/data/services-data";
 
@@ -61,9 +60,8 @@ const serviceImages = [ServiceImg1, ServiceImg2, ServiceImg3, ServiceImg4];
 const logoImages = [Logo1, Logo2, Logo3];
 
 const Services = () => {
-  const { services, buttonText } = serviceContent;
+  const { services, buttonText, header } = serviceContent;
 
-  // Memoize service cards to prevent unnecessary re-renders
   const serviceCards = useMemo(() => {
     return services.map((service, index) => (
       <ServiceCard
@@ -88,19 +86,20 @@ const Services = () => {
         <Header
           title={
             <>
-              Let&apos;s work together <br className="hidden lg:block" /> with
-              our us
+              {header.title.split("with")[0]}
+              <br className="hidden lg:block" />
+              with{header.title.split("with")[1]}
             </>
           }
           description={
             <>
-              help you to build website company that is modern, user friendly,
+              {header.description.split("good")[0]}
               <br className="hidden lg:block" />
-              good CEO, and Clean design
+              good {header.description.split("good")[1]}
             </>
           }
           buttonContainer={true}
-          buttonText="Get Started"
+          buttonText={header.buttonText}
           buttonIcon={<ArrowUpCircleIcon color="black" />}
           buttonPosition="bottom"
           buttonSize="small"
