@@ -1,6 +1,6 @@
 import Image from "next/image";
 import PortfolioCard from "@/components/ui/cards/PortfolioCard";
-import Header from "@/components/ui/Header";
+import Header from "@/components/website/common/Header";
 
 import Image1 from "public/img/png/portfolio/img-1.png";
 import Image2 from "public/img/png/portfolio/img-2.png";
@@ -12,7 +12,7 @@ import { ArrowUpCircleIcon } from "public/icons/Icons";
 
 const Portfolio = () => {
   return (
-    <div className="xl:-mt-30 lg:-mt-75 md:-mt-[200px] sm:-mt-[160px] xs:-mt-[130px] -mt-[112px]">
+    <div className="xs:-mt-[130px] -mt-[112px] sm:-mt-[160px] md:-mt-[200px] lg:-mt-75 xl:-mt-30">
       <Header
         title="Our Product"
         description={
@@ -29,7 +29,7 @@ const Portfolio = () => {
 
       <div className="relative z-20">
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-b-2 border-b-[#635189] relative">
+          <div className="relative border-b-2 border-b-[#635189]">
             <PortfolioCard
               cardDescription="Development Project"
               cardTitle="MStore"
@@ -45,7 +45,7 @@ const Portfolio = () => {
               bottomDescription="Mangcoding is a biggest company in Indonesia, who provides the services in Development Website, Shopify and Wordpress"
             />
           </div>
-          <div className="border-b-2 border-b-[#635189] relative">
+          <div className="relative border-b-2 border-b-[#635189]">
             <PortfolioCard
               cardDescription="Development Project"
               cardTitle="Beauty"
@@ -95,11 +95,11 @@ const Portfolio = () => {
       </div>
 
       {/* Keep divider with its existing z-index but position it absolutely */}
-      <div className="relative flex md:flex sm:flex w-full justify-center pointer-events-none -mt-65">
+      <div className="pointer-events-none relative -mt-65 flex w-full justify-center sm:flex md:flex">
         <Image
           src={Devider}
           alt=""
-          className="w-[calc(100%+60px)] 2xl:max-w-[calc(100%+60px)] xl:max-w-[calc(100%+60px)] lg:max-w-[calc(100%+60px)] 2xl:h-auto xl:h-auto lg:h-auto z-10"
+          className="z-10 w-[calc(100%+100px)] lg:h-auto lg:max-w-[calc(100%+60px)] xl:h-auto xl:max-w-[calc(100%+60px)] 2xl:h-auto 2xl:max-w-[calc(100%+100px)]"
         />
       </div>
     </div>

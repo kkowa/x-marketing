@@ -31,6 +31,8 @@ import Logo3 from "public/img/svg/logo3.svg";
 import { ArrowUpIcon } from "public/icons/Icons";
 import Marquee from "@/components/animations/Marquee";
 
+import Header from "@/components/website/common/Header";
+
 const servicesStyles = {
   headerWrapper:
     "relative flex text-black  flex-col md:flex-col sm:flex-col 2xl:flex-row xl:flex-row lg:flex-row 2xl:justify-between xl:justify-between lg:justify-between md:justify-center sm:justify-center justify-center 2xl:items-end xl:items-end lg:items-end md:items-center sm:items-center items-center w-full 2xl:-mt-95 xl:-mt-95 lg:-mt-75 md:-mt-[200px] sm:-mt-[160px] xs:-mt-[130px] -mt-[112px]",
@@ -98,7 +100,7 @@ const ServicesCardDescription = (
   description: string,
   buttonText: string,
   cardButtonStyle: string,
-  cardButtonColor: string
+  cardButtonColor: string,
 ) => {
   return (
     <div className={cardSizeSpecificDescriptionContainer}>
@@ -128,30 +130,29 @@ const ServicesCardDescription = (
 const Services = () => {
   return (
     <>
-      <div id="service-card-header" className={servicesStyles.headerWrapper}>
-        <div className={servicesStyles.textContainer}>
-          <div className={`title-color ${servicesStyles.title}`}>
-            Let&apos;s work together{" "}
-            <br className="hidden 2xl:block xl:block lg:block" /> with our us
-          </div>
-          <div className={servicesStyles.description}>
-            help you to build website company that is modern, user friendly,
-            <br className="hidden 2xl:block xl:block lg:block" />
-            good CEO, and Clean design
-          </div>
-        </div>
-        <div className={servicesStyles.buttonContainer}>
-          <Button
-            variant="outline"
-            size="csm"
-            radius="full"
-            text="Get Started"
-            className="2xl:w-full xl:w-full lg:w-full md:w-full sm:w-full w-full 2xl:h-12 xl:h-12 lg:h-12 md:h-12 sm:h-12 h-10 2xl:px-6 xl:px-6 lg:px-6 md:px-6 sm:px-6 px-4"
-          >
-            <ArrowUpCircleIcon color="black" />
-          </Button>
-        </div>
+      <div className="mt-20 sm:-mt-56 md:-mt-46 lg:-mt-86 xl:-mt-94">
+        <Header
+          title={
+            <>
+              Let&apos;s work together{" "}
+              <br className="hidden lg:block xl:block 2xl:block" /> with our us
+            </>
+          }
+          description={
+            <>
+              help you to build website company that is modern, user friendly,
+              <br className="hidden lg:block xl:block 2xl:block" />
+              good CEO, and Clean design
+            </>
+          }
+          buttonContainer={true}
+          buttonText="Get Started"
+          buttonIcon={<ArrowUpCircleIcon color="black" />}
+          buttonPosition="bottom"
+          buttonSize="small"
+        />
       </div>
+
       <div id="service-cards" className="pt-16">
         <div className={servicesStyles.cardsContainer}>
           <div className={servicesStyles.cardRow}>
@@ -168,9 +169,9 @@ const Services = () => {
                 content.description,
                 content.button,
                 servicesStyles.cardButton,
-                servicesStyles.cardButtonColor
+                servicesStyles.cardButtonColor,
               )}
-              <div className="absolute top-10 sm:-right-36 xs:-right-56 sm:block hidden  2xl:w-[71%] xl:w-[71%] lg:w-[71%] md:w-[56%] sm:w-[72%] xs:w-[98%] overflow-hidden">
+              <div className="xs:-right-56 xs:w-[98%] absolute top-10 hidden overflow-hidden sm:-right-36 sm:block sm:w-[72%] md:w-[56%] lg:w-[71%] xl:w-[71%] 2xl:w-[71%]">
                 <Image
                   src={ServiceImg1}
                   alt={content.image1Alt}
@@ -192,9 +193,9 @@ const Services = () => {
                 content.description,
                 content.button,
                 servicesStyles.cardButton,
-                servicesStyles.cardButtonColor
+                servicesStyles.cardButtonColor,
               )}
-              <div className="absolute top-10 sm:-right-12 xs:-right-12 sm:block hidden  2xl:w-[46%] xl:w-[46%] lg:w-[46%] md:w-[46%] sm:w-[57%] xs:w-[98%] overflow-hidden">
+              <div className="xs:-right-12 xs:w-[98%] absolute top-10 hidden overflow-hidden sm:-right-12 sm:block sm:w-[57%] md:w-[46%] lg:w-[46%] xl:w-[46%] 2xl:w-[46%]">
                 <Image
                   src={ServiceImg2}
                   className={servicesStyles.cardImage}
@@ -218,9 +219,9 @@ const Services = () => {
                 content.description,
                 content.button,
                 servicesStyles.cardButton,
-                servicesStyles.cardButtonColor
+                servicesStyles.cardButtonColor,
               )}
-              <div className="absolute top-10 lg:-right-36 md:-right-40 xs:-right-36 sm:block hidden  2xl:w-[94%] xl:w-[94%] lg:w-[94%] md:w-[80%] sm:w-[94%] xs:w-[98%] overflow-hidden">
+              <div className="xs:-right-36 xs:w-[98%] absolute top-10 hidden overflow-hidden sm:block sm:w-[94%] md:-right-40 md:w-[80%] lg:-right-36 lg:w-[94%] xl:w-[94%] 2xl:w-[94%]">
                 <Image
                   src={ServiceImg3}
                   className={servicesStyles.cardImage}
@@ -242,9 +243,9 @@ const Services = () => {
                 content.description,
                 content.button,
                 servicesStyles.cardButton,
-                servicesStyles.cardButtonColor
+                servicesStyles.cardButtonColor,
               )}
-              <div className="absolute top-10 sm:-right-18 xs:-right-56 sm:block hidden  2xl:w-[58%] xl:w-[58%] lg:w-[58%] md:w-[52%] sm:w-[60%] xs:w-[60%] overflow-hidden">
+              <div className="xs:-right-56 xs:w-[60%] absolute top-10 hidden overflow-hidden sm:-right-18 sm:block sm:w-[60%] md:w-[52%] lg:w-[58%] xl:w-[58%] 2xl:w-[58%]">
                 <Image
                   src={ServiceImg4}
                   className={servicesStyles.cardImage}
@@ -257,14 +258,14 @@ const Services = () => {
       </div>
       <div className="relative">
         <div className={servicesStyles.DeviderWrapperLarge}>
-          <div className="absolute left-[50%] right-0 w-screen transform -translate-x-1/2 xl:mt-14 lg:mt-15 md:mt-11 sm:mt-8 xs:mt-6 mt-4 h-auto">
+          <div className="xs:mt-6 absolute right-0 left-[50%] mt-4 h-auto w-screen -translate-x-1/2 transform sm:mt-8 md:mt-11 lg:mt-15 xl:mt-14">
             <Image src={MarqueeBackground1} className="w-full" alt=""></Image>
             <Image
               src={MarqueeBackground2}
               className="absolute top-0 left-0 w-full"
               alt=""
             ></Image>
-            <div className="rotate-2 -mt-40">
+            <div className="-mt-40 rotate-2">
               <Marquee
                 images={[Logo1, Logo2, Logo3]}
                 showText={false}

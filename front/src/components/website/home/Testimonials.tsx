@@ -1,5 +1,5 @@
 import { ReviewCard } from "@/components/ui/cards/ReviewCard";
-import Header from "@/components/ui/Header";
+import Header from "@/components/website/common/Header";
 import Photo1 from "public/img/png/reviews/photo-1.png";
 import Photo2 from "public/img/png/reviews/photo-2.png";
 import Photo3 from "public/img/png/reviews/photo-3.png";
@@ -9,7 +9,7 @@ import Photo6 from "public/img/png/reviews/photo-6.png";
 
 const Testimonials = () => {
   return (
-    <div className=" container mx-auto h-full xl:-mt-80 lg:-mt-75 md:-mt-[200px] sm:-mt-[160px] xs:-mt-[130px] -mt-[112px] mb-20">
+    <div className="xs:-mt-[130px] container mx-auto -mt-[112px] mb-20 h-full sm:-mt-[160px] md:-mt-[200px] lg:-mt-75 xl:-mt-80">
       <Header
         title="What they say about us"
         description={
@@ -22,7 +22,7 @@ const Testimonials = () => {
         buttonContainer={false}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+      <div className="my-8 grid grid-cols-1 gap-6 md:grid-cols-3">
         <ReviewCard
           reviewPicture={Photo1}
           reviewName="Nugraha"
