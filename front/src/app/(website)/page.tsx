@@ -1,10 +1,19 @@
-import Image from "next/image";
+/**
+ * ┌─────────────────────────────────────────────────────┐
+ * │                                                     │
+ * │  Home Page Component                                │
+ * │                                                     │
+ * │  This component serves as the main landing page     │
+ * │  of the website. It imports and renders various     │
+ * │  sections including About, Services, Portfolio,     │
+ * │  Testimonials, and Contact. The component also      │
+ * │  includes decorative SVGs positioned throughout     │
+ * │   the page to enhance the visual design.            │
+ * │                                                     │
+ * └─────────────────────────────────────────────────────┘
+ */
 
-import About from "@/components/website/home/About";
-import Services from "@/components/website/home/Services";
-import Portfolio from "@/components/website/home/Portfolio";
-import Testimonials from "@/components/website/home/Testimonials";
-import Contact from "@/components/website/home/Contact";
+import Image from "next/image";
 
 import Blob1 from "public/img/background/blobs/blob-1.svg";
 import Blob2 from "public/img/background/blobs/blob-2.svg";
@@ -14,9 +23,14 @@ import Blob5 from "public/img/background/blobs/blob-5.svg";
 import Blob6 from "public/img/background/blobs/blob-6.svg";
 import Blob7 from "public/img/background/blobs/blob-7.svg";
 import Blob8 from "public/img/background/blobs/blob-8.svg";
-import Blob9 from "public/img/background/blobs/blob-9.svg";
 
-import BacgroundIcon from "public/img/background/bg-icon.svg";
+import BacgroundIcon from "public/img/background/icon.svg";
+
+import About from "@/components/website/home/About";
+import Services from "@/components/website/home/Services";
+import Portfolio from "@/components/website/home/Portfolio";
+import Testimonials from "@/components/website/home/Testimonials";
+import Contact from "@/components/website/home/Contact";
 
 export default function Home() {
   return (
