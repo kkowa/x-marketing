@@ -1,7 +1,7 @@
 /**
  * ┌─────────────────────────────────────────────────────┐
  * │                                                     │
- * │ About Section Component                             │
+ * │              About Section Component                │
  * │                                                     │
  * │ This component renders the About section of the     │
  * │ website. It displays a header with a title,         │
@@ -29,8 +29,7 @@ import SVGDevider2 from "public/img/svg/about-devider-small.svg";
 
 // Components
 import Header from "@/components/website/common/Header";
-import DeviderLarge from "@/components/website/common/deviders/DeviderLarge";
-import DeviderSmall from "@/components/website/common/deviders/DeveiderSmall";
+import Devider from "@/components/website/common/Devider";
 
 // Data
 import aboutContent from "@/data/about-data";
@@ -61,16 +60,12 @@ const About = () => {
         buttonSize="large"
       />
 
-      <DeviderLarge
-        src={SVGDevider1}
-        alt={"divider on large screen"}
-        className="lg:-mt-38 xl:-mt-43"
-      />
-
-      <DeviderSmall
-        src={SVGDevider2}
-        alt={"divider on large screen"}
-        className="lg:-mt-43 xl:-mt-43 2xl:-mt-43"
+      <Devider
+        largeSrc={SVGDevider1}
+        smallSrc={SVGDevider2}
+        alt="About section devider."
+        largeClassName="lg:-mt-38 xl:-mt-43"
+        smallClassName="lg:-mt-43 xl:-mt-43 2xl:-mt-43"
       />
     </>
   );

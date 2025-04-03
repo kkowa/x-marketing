@@ -19,6 +19,7 @@ export const heroContent = {
   title: "Amazing website creation with Bantu agency",
   description:
     "help you to build website company that is modern, user friendly, good CEO, and Clean design",
+  button: "Get Started",
   socialIcons: [
     { type: "instagram" },
     { type: "whatsapp" },
