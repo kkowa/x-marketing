@@ -1,7 +1,7 @@
 /**
  * ┌─────────────────────────────────────────────────────┐
  * │                                                     │
- * │ Divider Component                                   │
+ * │                 Divider Component                   │
  * │                                                     │
  * │ A responsive divider component that displays        │
  * │ different divider images based on screen size.      │
