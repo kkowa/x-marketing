@@ -1,7 +1,7 @@
 /**
  * ┌─────────────────────────────────────────────────────┐
  * │                                                     │
- * │ Header Component                                    │
+ * │                 Header Component                    │
  * │                                                     │
  * │ A flexible header component that displays a title,  │
  * │ description, and an optional button. The button     │
@@ -21,13 +21,16 @@
  */
 
 import React, { ReactNode } from "react";
+
+// Components
 import {
   Button,
   type ButtonProps,
 } from "@/components/ui/buttons/StandardButton";
+
+// Utils
 import { cn } from "@/lib/utils";
 
-// Simplified positioning with fewer breakpoints
 const getButtonPosition = (position: string) => {
   const baseClass =
     "z-30 mt-6 flex justify-center lg:absolute lg:right-0 lg:mt-0";
@@ -42,7 +45,6 @@ const getButtonPosition = (position: string) => {
   return positions[position as keyof typeof positions] || positions.default;
 };
 
-// Simplified size config with fewer options
 const getButtonSize = (size: string) => {
   const sizes = {
     small: {
@@ -62,7 +64,7 @@ const getButtonSize = (size: string) => {
 
 type ButtonSizeType = NonNullable<ButtonProps["size"]>;
 
-interface HeaderProps {
+type HeaderProps = {
   title: string | ReactNode;
   description: string | ReactNode;
   buttonContainer?: boolean;
@@ -70,7 +72,7 @@ interface HeaderProps {
   buttonIcon?: ReactNode;
   buttonPosition?: "top" | "middle" | "bottom";
   buttonSize?: "small" | "large";
-}
+};
 
 const Header = ({
   title,

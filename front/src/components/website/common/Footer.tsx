@@ -1,7 +1,7 @@
 /**
  * ┌─────────────────────────────────────────────────────┐
  * │                                                     │
- * │ Footer Component                                    │
+ * │                 Footer Component                    │
  * │                                                     │
  * │ A responsive footer component that displays company │
  * │ information, service listings, business features,   │
@@ -15,6 +15,8 @@
  */
 
 import React from "react";
+
+// Assets
 import {
   CompanyLogoIdeogram,
   InstagramIcon,
@@ -23,7 +25,7 @@ import {
   WhatsAppIcon,
 } from "public/icons/Icons";
 
-// Import footer data and types
+// Data
 import footerContent, { SocialIconType } from "@/data/footer-data";
 
 const Footer: React.FC = () => {

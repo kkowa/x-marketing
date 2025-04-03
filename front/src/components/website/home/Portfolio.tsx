@@ -1,7 +1,7 @@
 /**
  * ┌─────────────────────────────────────────────────────┐
  * │                                                     │
- * │ Portfolio Component                                 │
+ * │               Portfolio Component                   │
  * │                                                     │
  * │ This component displays a portfolio section with    │
  * │ a header, grid of portfolio cards, and a divider.   │

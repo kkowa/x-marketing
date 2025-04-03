@@ -1,7 +1,7 @@
 /**
  * ┌─────────────────────────────────────────────────────┐
  * │                                                     │
- * │ Testimonials Component                              │
+ * │               Testimonials Component                │
  * │                                                     │
  * │ This component displays customer testimonials in    │
  * │ a responsive grid layout. It includes a header      │

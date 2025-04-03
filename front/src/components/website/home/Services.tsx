@@ -1,7 +1,7 @@
 /**
  * ┌─────────────────────────────────────────────────────┐
  * │                                                     │
- * │ Services Component                                  │
+ * │               Services Component                    │
  * │                                                     │
  * │ This component displays the services section of     │
  * │ the website featuring a header, service cards,      │
@@ -82,7 +82,7 @@ const Services = () => {
 
   return (
     <>
-      <div className="mt-20 sm:-mt-56 md:-mt-46 lg:-mt-86 xl:-mt-94">
+      <div className="xs:-mt-10 mt-30 sm:-mt-46 md:-mt-46 lg:-mt-86 xl:-mt-94">
         <Header
           title={
             <>

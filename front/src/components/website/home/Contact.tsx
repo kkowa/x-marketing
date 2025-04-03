@@ -1,7 +1,7 @@
 /**
  * ┌─────────────────────────────────────────────────────┐
  * │                                                     │
- * │ Contact Section Component                           │
+ * │              Contact Section Component              │
  * │                                                     │
  * │ This component renders the Contact section of the   │
  * │ website. It features a full-width background with   │
