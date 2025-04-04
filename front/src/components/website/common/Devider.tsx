@@ -47,7 +47,7 @@ const Divider = ({
 
       {/* Small divider for md screens and down */}
       <div
-        className={`xs:-mt-6 pointer-events-none relative z-10 hidden w-full justify-center sm:-mt-6 sm:flex md:-mt-8 md:flex lg:hidden ${smallClassName}`}
+        className={`xs:-mt-6 pointer-events-none relative z-1 w-full justify-center sm:-mt-6 sm:flex md:-mt-8 md:flex lg:hidden ${smallClassName}`}
       >
         <Image
           src={smallSrc}
