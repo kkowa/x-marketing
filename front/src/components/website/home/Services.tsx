@@ -82,12 +82,12 @@ const Services = () => {
 
   return (
     <>
-      <div className="xs:-mt-10 mt-30 sm:-mt-46 md:-mt-46 lg:-mt-86 xl:-mt-94">
+      <div className="mt-42 sm:-mt-45 lg:-mt-95">
         <Header
           title={
             <>
               {header.title.split("with")[0]}
-              <br className="hidden lg:block" />
+              <br />
               with{header.title.split("with")[1]}
             </>
           }
@@ -103,6 +103,7 @@ const Services = () => {
           buttonIcon={<ArrowUpCircleIcon color="black" />}
           buttonPosition="bottom"
           buttonSize="small"
+          preventDescriptionWrap={true}
         />
       </div>
 
