@@ -25,7 +25,7 @@
 // Assets
 import { ArrowUpIcon } from "public/icons/Icons";
 import SVGDevider1 from "public/img/svg/about-devider-large.svg";
-import SVGDevider2 from "public/img/svg/about-devider-small.svg";
+import SVGDevider2 from "public/img/deviders/devider-small.svg";
 
 // Components
 import Header from "@/components/website/common/Header";
@@ -48,9 +48,9 @@ const About = () => {
         }
         description={
           <>
-            {header.description.split("and")[0]}
-            <br className="hidden md:block" /> and
-            {header.description.split("and")[1]}
+            {header.description.split(" and")[0]}
+            <br /> and
+            {header.description.split(" and")[1]}
           </>
         }
         buttonContainer={true}
@@ -64,8 +64,8 @@ const About = () => {
         largeSrc={SVGDevider1}
         smallSrc={SVGDevider2}
         alt="About section devider."
-        largeClassName="lg:-mt-38 xl:-mt-43"
-        smallClassName="lg:-mt-43 xl:-mt-43 2xl:-mt-43"
+        largeClassName="lg:-mt-44 xl:-mt-48"
+        smallClassName="md:-mt-[24px]"
       />
     </>
   );
