@@ -1,30 +1,41 @@
-to do:
+THOUGHTS:
+A lot of duplication,
+Not much ways to reduce that or to make it more optimal
 
-Nav:
+MAINTANENCE:
+Design tokens - To be impleented in next iteration or with expansion of the figma file - currnley one used from bantu is VERY simple and not good from dev perspective.
 
-1. add a ui library
-2. Replace buttons
-3. Improve on logo
+Class ordering:
+prettier-plugin-tailwindcss
 
-black face of the shutter is higher then header and the description
+TODOS:
 
-Annimation
-add scroll animation under home description
-Continue with annimations and remainder of home page
-after shutter is turned over introduce harry portter style animation from which
-add loading
-add skeleton
-add extra libries if needed for transitions on the side of the user
+1. Make sure all components are optimised
+2. start optimising the styles
+3. organise public
+4. finailise responcivnes (including nav bar button) + last bits to the ui (nav bar opacity ? rateher then solid)
 
-add next section in pages
+Extra features 5. annimations to the text 6. translations + ui button
 
-go though the tailwind and either make the classes using their classes or add custom to the theme
-sort z indexes
+7. add loading
 
-Next steps (weekend)
-=
+8. testing
+9. documenting
+10. data storage
+11. deplying
 
+responcivnes, mobile first approach, only using
 
+figma design -> lg
 
-play around with the exact css for the responcivnes 
+        1 size smaller -> sm
+        2 sizez down -> base aka mobile
 
+ho do i get those icons larger ?
+
+limitations
+on screens lower then 250 px, the responcivness is not working, to do task in future
+
+When going thouguh teh braking points replace deviders
+
+avaoiding @apply
