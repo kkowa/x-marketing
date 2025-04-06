@@ -16,6 +16,7 @@ import { StaticImageData } from "next/image";
 
 interface DividerProps {
   largeSrc: string | StaticImageData;
+  mediumSrc: string | StaticImageData;
   smallSrc: string | StaticImageData;
   alt: string;
   largeClassName?: string;
@@ -24,6 +25,7 @@ interface DividerProps {
 
 const Divider = ({
   largeSrc,
+  mediumSrc,
   smallSrc,
   alt,
   largeClassName = "",
@@ -44,10 +46,22 @@ const Divider = ({
           sizes="100vw"
         />
       </div>
-
+      {/* Medium divider for md screens and down */}
+      <div
+        className={`xs:-mt-6 pointer-events-none relative z-1 hidden w-full justify-center sm:-mt-6 md:-mt-8 md:flex lg:hidden ${smallClassName}`}
+      >
+        <Image
+          src={mediumSrc}
+          alt={alt}
+          className="h-auto w-[calc(100%+80px)] max-w-[calc(100%+80px)]"
+          width={1920}
+          height={300}
+          sizes="100vw"
+        />
+      </div>
       {/* Small divider for md screens and down */}
       <div
-        className={`xs:-mt-6 pointer-events-none relative z-1 w-full justify-center sm:-mt-6 sm:flex md:-mt-8 md:flex lg:hidden ${smallClassName}`}
+        className={`xs:-mt-6 pointer-events-none relative z-1 flex w-full justify-center sm:-mt-6 sm:flex md:-mt-8 md:hidden ${smallClassName}`}
       >
         <Image
           src={smallSrc}

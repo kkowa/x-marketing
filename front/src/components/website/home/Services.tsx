@@ -82,11 +82,12 @@ const Services = () => {
 
   return (
     <>
-      <div className="mt-42 sm:-mt-45 lg:-mt-95">
+      <div className="-mt-49 sm:-mt-67 md:-mt-53 lg:-mt-85 xl:-mt-90">
         <Header
           title={
             <>
-              {header.title.split("with")[0]}
+              {header.title.split("together")[0]}{" "}
+              <br className="flex md:hidden" /> together
               <br />
               with{header.title.split("with")[1]}
             </>

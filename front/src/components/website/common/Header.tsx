@@ -71,7 +71,7 @@ const Header = ({
   return (
     <div className="relative flex w-full flex-col items-center text-black lg:flex-row lg:items-end lg:justify-between">
       <div className="w-full text-center lg:pb-0 lg:text-left">
-        <div className="title-color relative mb-6 overflow-hidden text-3xl text-xl leading-[1.2] sm:mb-7 sm:text-4xl lg:mb-8 lg:text-5xl xl:text-6xl">
+        <div className="title-color relative mb-6 overflow-hidden text-3xl leading-[1.2] sm:mb-7 sm:text-5xl md:text-5xl lg:mb-8 xl:text-6xl">
           {title}
         </div>
         <div className={descriptionClass}>{description}</div>

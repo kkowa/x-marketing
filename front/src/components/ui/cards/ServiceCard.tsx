@@ -45,7 +45,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   const descContainerClass = isLarge
     ? "2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-1/2 sm:w-1/2 xs:w-full w-full"
     : "2xl:w-2/3 xl:w-2/3 lg:w-2/3 md:w-1/2 sm:w-1/2 xs:w-full w-full";
-
+  // text-3xl leading-[1.2] sm:mb-7 sm:text-5xl md:text-5xl lg:mb-8 xl:text-6xl
   return (
     <Card
       className={`relative overflow-hidden ${cardSizeClass} shadow-md transition-shadow duration-300 hover:shadow-lg`}
@@ -54,18 +54,18 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       <div className={`${descContainerClass} flex h-full flex-col px-8 py-10`}>
         <Image
           src={icon}
-          className="mb-8 h-[60px] w-[60px]"
+          className="mb-6 h-15 w-15"
           alt={iconAlt}
           width={60}
           height={60}
         />
-        <div className="flex flex-grow flex-col justify-between">
+        <div className="flex flex-grow flex-col justify-between gap-4">
           <CardHeader>
-            <CardTitle className="text-4xl font-medium text-white">
+            <CardTitle className="text-2xl font-medium text-white lg:text-3xl">
               {title}
             </CardTitle>
           </CardHeader>
-          <CardContent className="text-white">
+          <CardContent className="text-white sm:text-sm lg:text-base">
             <p>{description}</p>
           </CardContent>
           <CardFooter>
@@ -73,7 +73,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               variant="link"
               size="sm"
               text={buttonText}
-              className="text-white underline"
+              className="text-white underline sm:text-sm lg:text-base"
             >
               <ArrowUpIcon color="white" />
             </Button>
@@ -82,8 +82,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       </div>
       <div
         className={`absolute top-10 hidden overflow-hidden sm:block ${
-          imagePosition.className ||
-          "sm:w-[60%] md:w-[52%] lg:w-[58%] xl:w-[58%] 2xl:w-[58%]"
+          imagePosition.className || "sm:w-[60%] md:w-[52%] lg:w-[58%]"
         }`}
         style={imagePosition.style || {}}
       >

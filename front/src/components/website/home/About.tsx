@@ -24,8 +24,9 @@
 
 // Assets
 import { ArrowUpIcon } from "public/icons/Icons";
-import SVGDevider1 from "public/img/svg/about-devider-large.svg";
-import SVGDevider2 from "public/img/deviders/devider-small.svg";
+import LargeDevider from "public/img/deviders/about/large.svg";
+import TabletDevider from "public/img/deviders/about/medium.svg";
+import MobileDevider from "public/img/deviders/about/small.svg";
 
 // Components
 import Header from "@/components/website/common/Header";
@@ -61,11 +62,12 @@ const About = () => {
       />
 
       <Devider
-        largeSrc={SVGDevider1}
-        smallSrc={SVGDevider2}
+        largeSrc={LargeDevider}
+        mediumSrc={TabletDevider}
+        smallSrc={MobileDevider}
         alt="About section devider."
         largeClassName="lg:-mt-44 xl:-mt-48"
-        smallClassName="md:-mt-[24px]"
+        smallClassName="-mt-5"
       />
     </>
   );
